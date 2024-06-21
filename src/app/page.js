@@ -1,13 +1,12 @@
-// import { Header } from "@/components/Header/Header";
-import { Home as Homes } from "@/components/Home/Home";
+import { Header } from "@/components/Header/Header";
+
 export default function Home() {
   return (
     <div className="">
-      {/* <Header />
+      <Header />
       <main>
         <p>Home</p>
-      </main> */}
-      <Homes />
+      </main>
     </div>
   );
 }

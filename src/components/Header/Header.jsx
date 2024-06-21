@@ -1,11 +1,18 @@
+import { Container } from "../Container/Container";
 import { Logo } from "../Logo/Logo";
 import { Nav } from "../Nav/Nav";
+import { User } from "../User/User";
 
 export const Header = () => {
   return (
-    <header className="bg-[#fff] py-[20px] px-[100px] flex justify-between">
-      <Logo />
-      <Nav />
+    <header className="bg-[#fff] ">
+      <Container>
+        <div className="flex justify-between">
+          <Logo />
+          <Nav />
+          <User />
+        </div>
+      </Container>
     </header>
   );
 };

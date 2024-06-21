@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-family: "MacPaw Fixel Display", sans-serif;
-  --second-family: "SF Pro Display", sans-serif;
-  --third-family: "Inter", sans-serif;
-}
 body {
-  background-color: var(--white-1);
-  font-family: var(--third-family);
+  background-color: #f8f8f8;
+}
+.gradient {
+  background-image: url(../images/background.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }

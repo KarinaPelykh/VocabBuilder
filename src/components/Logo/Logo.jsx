@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Logo = () => {
   return (
     <div className="flex items-center">
@@ -18,9 +20,12 @@ export const Logo = () => {
         />
       </svg>
 
-      <p className=" text-[#000] text-[22px] font-semibold leading-[1.45]">
+      <Link
+        href="/"
+        className=" text-black text-[22px] font-fixelBold leading-[1,45]"
+      >
         VocabBuilder
-      </p>
+      </Link>
     </div>
   );
 };
