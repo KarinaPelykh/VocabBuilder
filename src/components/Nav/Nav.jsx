@@ -1,4 +1,7 @@
+"use client";
+import clsx from "clsx";
 import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
 
 export const Nav = () => {
   const routes = [
@@ -6,11 +9,18 @@ export const Nav = () => {
     { route: "recommend", text: "Recommend", id: 2 },
     { route: "training", text: "Training", id: 3 },
   ];
+  const pathname = usePathname();
   return (
     <nav>
       <ul>
         {routes.map(({ route, text, id }) => (
-          <Link key={id} href={route}>
+          <Link
+            className={clsx(
+              pathname === route && "bg-green px-[12px] py-[20px]"
+            )}
+            key={id}
+            href={route}
+          >
             {text}
           </Link>
         ))}
