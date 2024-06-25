@@ -1,7 +1,7 @@
-import { Hero } from "@/components/Hero/Hero";
-import { Logo } from "@/components/Logo/Logo";
+import { Hero } from "../../components/Hero/Hero";
+import { Logo } from "../../components/Logo/Logo";
 import { Container } from "../../components/Container/Container.jsx";
-import { LoginForm } from "@/components/LoginForm/LoginForm.jsx";
+import { LoginForm } from "../../components/LoginForm/LoginForm.jsx";
 
 export default function Login() {
   return (

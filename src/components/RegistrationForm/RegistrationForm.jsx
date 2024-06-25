@@ -7,7 +7,11 @@ import { useState } from "react";
 import clsx from "clsx";
 import { Error } from "../Message/Error";
 import { Success } from "../Message/Success";
+import { useDispatch, useSelector } from "react-redux";
 
+import { useRouter } from "next/navigation";
+import { userIsLoggedIn } from "../../redux/auth/selector";
+import { userSignUp } from "../../redux/auth/operations";
 const schema = yup
   .object({
     name: yup.string().required(),
@@ -24,7 +28,9 @@ const schema = yup
 export const RegistrationForm = () => {
   const [isShow, setIsShow] = useState(false);
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(userIsLoggedIn);
+  const router = useRouter();
   const handleShow = () => {
     setIsShow(!isShow);
   };
@@ -36,9 +42,12 @@ export const RegistrationForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
+
   const onSubmit = (data) => {
-    console.log(data);
+    const { name, email, password } = data;
+    dispatch(userSignUp({ name, email, password }))
+      .unwrap()
+      .then(() => router.push("/dictionary"));
     reset();
   };
 
@@ -51,6 +60,7 @@ export const RegistrationForm = () => {
     }
   };
   const isValid = isPasswordLengthValid();
+
   return (
     <form
       className="xl:w-[658px] xl:h-[592px] rounded-[30px] bg-[#85aa9f19] px-[64px] py-[48px] "

@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export const Logo = () => {
   return (
-    <div className="flex items-center">
+    <Link
+      href="/"
+      className="flex items-center text-black text-[22px] font-fixelBold leading-[1,45]"
+    >
       <svg
         className="mr-[16px]"
         width="40"
@@ -19,13 +22,7 @@ export const Logo = () => {
           fill="#FCFCFC"
         />
       </svg>
-
-      <Link
-        href="/"
-        className=" text-black text-[22px] font-fixelBold leading-[1,45]"
-      >
-        VocabBuilder
-      </Link>
-    </div>
+      VocabBuilder
+    </Link>
   );
 };
