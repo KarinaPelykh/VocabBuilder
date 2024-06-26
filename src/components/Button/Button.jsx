@@ -1,6 +1,9 @@
-export const Button = ({ text }) => {
+export const Button = ({ text, onClick }) => {
   return (
-    <button className="ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center">
+    <button
+      className="ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center"
+      onClick={onClick}
+    >
       {text}
       <svg
         className=" ml-[6px]"

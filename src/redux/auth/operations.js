@@ -1,4 +1,4 @@
-import { instance } from "../../Api/api";
+import { clear, instance, setToken } from "../../Api/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const userSignUp = createAsyncThunk(
@@ -10,8 +10,8 @@ export const userSignUp = createAsyncThunk(
         email,
         password,
       });
+      setToken(data.token);
 
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -27,8 +27,36 @@ export const userSignIn = createAsyncThunk(
         email,
         password,
       });
+      setToken(data.token);
       console.log(data);
       return data;
-    } catch (error) {}
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const LogOut = createAsyncThunk(
+  "user/logOut",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.post("/users/signout");
+      console.log(data);
+      clear();
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+export const RefreshUser = createAsyncThunk(
+  "user/refresh",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.get("/users/current");
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );

@@ -3,7 +3,7 @@ import Link from "next/link";
 export const Logo = () => {
   return (
     <Link
-      href="/"
+      href="/dictionary"
       className="flex items-center text-black text-[22px] font-fixelBold leading-[1,45]"
     >
       <svg

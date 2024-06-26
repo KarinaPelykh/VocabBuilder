@@ -10,7 +10,6 @@ export const Nav = () => {
     { route: "/training", text: "Training", id: 3 },
   ];
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <nav>
       <ul className="flex justify-center ">
@@ -18,9 +17,8 @@ export const Nav = () => {
           <li key={id} className="mr-[28px] last:mr-0">
             <Link
               className={clsx(
-                pathname === route
-                  ? "bg-green px-[12px] py-[20px] rounded-m text-[#fff]"
-                  : "bg-white px-[12px] py-[20px]"
+                pathname === route &&
+                  "bg-green px-[12px] py-[20px] rounded-m text-[#fff]"
               )}
               href={route}
             >
