@@ -53,10 +53,11 @@ export const RefreshUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instance.get("/users/current");
-      console.log(data);
+      console.log("RefreshUser", data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
+RefreshUser();

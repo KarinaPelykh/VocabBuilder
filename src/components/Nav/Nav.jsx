@@ -18,7 +18,7 @@ export const Nav = () => {
             <Link
               className={clsx(
                 pathname === route &&
-                  "bg-green px-[12px] py-[20px] rounded-m text-[#fff]"
+                  "bg-green py-[12px] px-[20px] rounded-m text-[#fff]"
               )}
               href={route}
             >

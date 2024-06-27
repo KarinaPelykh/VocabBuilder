@@ -14,7 +14,7 @@ import { AuthReducer } from "./auth/authSlice";
 import { wordsReducer } from "./words/wordSlice";
 
 const persistConfig = {
-  key: "root",
+  key: "auth",
   whitelist: ["token"],
   storage,
 };

@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className="bg-[#fff] ">
       <Container>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <Logo />
           <Nav />
           <User />

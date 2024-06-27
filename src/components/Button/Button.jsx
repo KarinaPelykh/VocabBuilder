@@ -1,4 +1,6 @@
-export const Button = ({ text, onClick }) => {
+import clsx from "clsx";
+
+export const Button = ({ text, onClick, children, className }) => {
   return (
     <button
       className="ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center"
@@ -6,7 +8,7 @@ export const Button = ({ text, onClick }) => {
     >
       {text}
       <svg
-        className=" ml-[6px]"
+        className={clsx(" ml-[6px] flex", className)}
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -28,6 +30,7 @@ export const Button = ({ text, onClick }) => {
           stroke-linejoin="round"
         />
       </svg>
+      {children}
     </button>
   );
 };
