@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategories } from "./operations";
+import { getCategories, getStatistics } from "./operations";
 const initialState = {
   words: [],
   categories: [],
   error: "",
   loader: false,
+  statistics: "",
 };
 export const wordsSlice = createSlice({
   name: "words",
@@ -19,6 +20,9 @@ export const wordsSlice = createSlice({
       })
       .addCase(getCategories.pending, (state) => {
         state.loader = true;
+      })
+      .addCase(getStatistics.fulfilled, (state, action) => {
+        state.statistics = action.payload;
       }),
 });
 export const wordsReducer = wordsSlice.reducer;

@@ -2,8 +2,9 @@
 import { useSelector } from "react-redux";
 import { categoriesSelector } from "../../../redux/words/selector";
 import { useState } from "react";
+import clsx from "clsx";
 
-export const Filters = () => {
+export const Filters = ({ className }) => {
   const [isVerb, setIsVerb] = useState(false);
   const categories = useSelector(categoriesSelector);
   const handleVerb = (e) => {
@@ -13,18 +14,23 @@ export const Filters = () => {
   return (
     <>
       <select onChange={handleVerb}>
-        <option>Categories</option>
         {categories.map((item, index) => (
           <option key={index}>{item}</option>
         ))}
       </select>
       {isVerb ? (
         <>
-          <label for="html">
+          <label
+            for="htmlFor"
+            className={clsx("text-[#000]", className && className)}
+          >
             <input className="bg-green" type="radio" value="Regular" />
             Regular
           </label>
-          <label for="html">
+          <label
+            for="htmlFor"
+            className={clsx("text-[#000]", className && className)}
+          >
             <input className="bg-green" type="radio" value="Irregular" />
             Irregular
           </label>

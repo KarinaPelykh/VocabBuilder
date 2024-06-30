@@ -1,13 +1,17 @@
+"use client";
 import Link from "next/link";
 import { Button } from "../../Button/Button";
-
+import { Statistics } from "../Statistics/Statistics";
+import useToggle from "../../../hooks/useToggle";
+import { AddWords } from "../../Modal/AddWord";
+import { Modal } from "../../Modal/Modal";
 export const AddWordBtn = () => {
+  const { open, close, toggle, isOpen } = useToggle();
+  console.log(open, close, toggle, isOpen);
   return (
     <div className="flex">
-      <p className="mr-[16px]">
-        To study:<span>20</span>
-      </p>
-      <Button text={"Add word"} className="hidden">
+      <Statistics />
+      <Button onClick={open} text={"Add word"} svg="hidden">
         <svg
           className="ml-[8px]"
           width="20"
@@ -51,6 +55,9 @@ export const AddWordBtn = () => {
           />
         </svg>
       </Link>
+      <Modal onClick={close} isOpen={isOpen} >
+        <AddWords />
+      </Modal>
     </div>
   );
 };

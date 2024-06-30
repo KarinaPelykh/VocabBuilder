@@ -1,14 +1,17 @@
 import clsx from "clsx";
 
-export const Button = ({ text, onClick, children, className }) => {
+export const Button = ({ text, onClick, children, className, svg }) => {
   return (
     <button
-      className="ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center"
+      className={clsx(
+        "ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center",
+        className
+      )}
       onClick={onClick}
     >
       {text}
       <svg
-        className={clsx(" ml-[6px] flex", className)}
+        className={clsx(" ml-[6px] flex", className, svg)}
         width="16"
         height="16"
         viewBox="0 0 16 16"

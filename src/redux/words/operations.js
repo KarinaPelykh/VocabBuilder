@@ -14,4 +14,14 @@ export const getCategories = createAsyncThunk(
   }
 );
 
-// export const
+export const getStatistics = createAsyncThunk(
+  "get/Statistics",
+  async (_, { rejectedWithValue }) => {
+    try {
+      const { data } = await instance.get("/words/statistics");
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
+  }
+);
