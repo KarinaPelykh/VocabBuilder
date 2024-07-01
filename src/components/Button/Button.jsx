@@ -1,8 +1,9 @@
 import clsx from "clsx";
 
-export const Button = ({ text, onClick, children, className, svg }) => {
+export const Button = ({ text, onClick, children, className, svg, type }) => {
   return (
     <button
+      type={type}
       className={clsx(
         "ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center",
         className

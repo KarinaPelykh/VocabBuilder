@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 export const Filters = ({ className }) => {
   const [isVerb, setIsVerb] = useState(false);
+  const [regular, setRegular] = useState(false);
+  const [irregular, setIrregular] = useState(false);
   const categories = useSelector(categoriesSelector);
   const handleVerb = (e) => {
     const option = e.target.value;
@@ -24,14 +26,24 @@ export const Filters = ({ className }) => {
             for="htmlFor"
             className={clsx("text-[#000]", className && className)}
           >
-            <input className="bg-green" type="radio" value="Regular" />
+            <input
+              className="bg-green"
+              type="radio"
+              value="Regular"
+              checked={regular}
+            />
             Regular
           </label>
           <label
             for="htmlFor"
             className={clsx("text-[#000]", className && className)}
           >
-            <input className="bg-green" type="radio" value="Irregular" />
+            <input
+              className="bg-green"
+              type="radio"
+              value="Irregular"
+              checked={irregular}
+            />
             Irregular
           </label>
         </>

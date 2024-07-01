@@ -1,17 +1,19 @@
 "use client";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../redux/words/operations";
 import { Icon } from "../Icon";
-import { Button } from "../Button/Button";
-import { ActionButton } from "../Modal/ActionButton";
-import useToggle from "../../hooks/useToggle";
+
+import { newWordSelector } from "../../redux/words/selector";
+import { Item } from "./Item/Item";
 export const WordsTable = () => {
+  const word = useSelector(newWordSelector);
+  console.log(word);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
-  const { open, close, toggle, isOpen } = useToggle();
+
   return (
     <div className="bg-[#fcfcfc] p-[18px] mt-[28px] rounded-[15px]">
       <table className="w-[100%]">
@@ -45,31 +47,21 @@ export const WordsTable = () => {
           </tr>
         </thead>
         <tbody className="bg-[#fcfcf] relative">
-          <tr>
-            <td className="p-[22px] border border-[#DBDBDB] border-l-0 ">
-              vzvcvzcz
-            </td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB] border-r-0">
-              <Button onClick={toggle} text="..." svg="hidden" />
-            </td>
-          </tr>
-          <tr>
-            <td className="p-[22px] border border-[#DBDBDB] border-l-0  ">
-              vzvcvzcz
-            </td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB]">vzvcvzcz</td>
-            <td className="p-[22px] border border-[#DBDBDB]  border-r-0">
-              <Button onClick={toggle} text="..." svg="hidden" />
-            </td>
-          </tr>
+          {word.map(({ en, ua, category, progress, _id, isIrregular }) => {
+            return (
+              <Item
+                key={_id}
+                _id={_id}
+                en={en}
+                ua={ua}
+                category={category}
+                progress={progress}
+                isIrregular={isIrregular}
+              />
+            );
+          })}
         </tbody>
       </table>
-      {isOpen && <ActionButton />}
     </div>
   );
 };

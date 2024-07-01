@@ -55,8 +55,8 @@ export const AddWordBtn = () => {
           />
         </svg>
       </Link>
-      <Modal onClick={close} isOpen={isOpen} >
-        <AddWords />
+      <Modal onClick={close} isOpen={isOpen}>
+        <AddWords close={close} />
       </Modal>
     </div>
   );

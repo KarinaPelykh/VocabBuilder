@@ -1,6 +1,5 @@
 "use client";
 export const Modal = ({ children, onClick, isOpen }) => {
-  console.log(children);
   return (
     <>
       {isOpen && (

@@ -2,7 +2,7 @@ import useToggle from "../../hooks/useToggle";
 import { Icon } from "../Icon";
 import { Modal } from "./Modal";
 import { EditWords } from "../Modal/EditWords";
-export const ActionButton = () => {
+export const ActionButton = ({ id, en, ua, category,isIrregular }) => {
   const { open, close, isOpen } = useToggle();
   return (
     <>
@@ -27,7 +27,13 @@ export const ActionButton = () => {
         </button>
       </div>
       <Modal onClick={close} isOpen={isOpen}>
-        <EditWords />
+        <EditWords
+          id={id}
+          en={en}
+          ua={ua}
+          category={category}
+          isIrregular={isIrregular}
+        />
       </Modal>
     </>
   );
