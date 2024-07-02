@@ -20,7 +20,7 @@ export const Success = () => {
           </clipPath>
         </defs>
       </svg>
-      <p className=" ml-[4px] text-[12px] leading-[1,05] font-fixelRegulartext-[#00ff00]">
+      <p className=" ml-[4px] text-[12px] leading-[1,05] font-fixelRegular text-[#00ff00]">
         Success password
       </p>
     </div>

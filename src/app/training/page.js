@@ -1,3 +1,9 @@
+import { Container } from "../../components/Container/Container";
+import { Grating } from "../../components/UI/Grating";
 export default function Training() {
-  return <p>Training page</p>;
+  return (
+    <Container>
+      <Grating />
+    </Container>
+  );
 }

@@ -50,8 +50,14 @@ export const LogOut = createAsyncThunk(
 );
 export const RefreshUser = createAsyncThunk(
   "user/refresh",
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
     try {
+      const persist = getState().auth.token;
+      console.log("token", persist);
+      if (!persist) {
+        return;
+      }
+      setToken(persist);
       const { data } = await instance.get("/users/current");
       console.log("RefreshUser", data);
       return data;
@@ -60,4 +66,3 @@ export const RefreshUser = createAsyncThunk(
     }
   }
 );
-RefreshUser();

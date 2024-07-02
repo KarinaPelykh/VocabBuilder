@@ -4,7 +4,8 @@ import { Button } from "../Button/Button";
 import { Icon } from "../Icon";
 import { useDispatch } from "react-redux";
 import { EditWord } from "../../redux/words/operations";
-export const EditWords = ({ id, en, ua, category, isIrregular }) => {
+import { toast } from "react-toastify";
+export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
   const [wordUA, setWordUA] = useState(ua);
   const [wordEN, setWordEN] = useState(en);
   const dispatch = useDispatch();
@@ -12,11 +13,10 @@ export const EditWords = ({ id, en, ua, category, isIrregular }) => {
     dispatch(EditWord({ en: wordEN, ua: wordUA, category, isIrregular, id }))
       .unwrap()
       .then(() => {
-        toast.success("you add new word");
+        toast.success("you changed new word");
         setWordUA("");
         setWordEN("");
-
-        close();
+        onClick();
       })
       .catch((error) => toast.error(error));
   };
@@ -26,7 +26,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular }) => {
         <input
           onChange={(e) => setWordUA(e.target.value)}
           value={wordUA}
-          className=" mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
+          className=" outline-none text-[#fff] mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
           placeholder="трошки"
         />
         <p className="flex text-[#fff] items-center justify-center ml-[32px]">
@@ -43,7 +43,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular }) => {
         <input
           onChange={(e) => setWordEN(e.target.value)}
           value={wordEN}
-          className="border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
+          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
           placeholder="a littel"
         />
         <p className="flex text-[#fff] items-center justify-center ml-[32px]">
@@ -66,6 +66,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular }) => {
           svg="hidden"
         />
         <Button
+          onClick={onClick}
           type="button"
           text={"Cancel"}
           svg="hidden"

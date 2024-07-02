@@ -22,7 +22,9 @@ export const AddWords = ({ close }) => {
   };
 
   const handleAddWord = () => {
-    dispatch(addWord({ en: wordEng, ua: wordUa, category, isIrregular }))
+    dispatch(
+      addWord({ en: wordEng, ua: wordUa, category, isIrregular: isIrregular })
+    )
       .unwrap()
       .then(() => {
         toast.success("you add new word");
@@ -36,6 +38,7 @@ export const AddWords = ({ close }) => {
   const handleIsIrregular = (e) => {
     setIsIrregular(e.target.value === "Irregular");
   };
+
   return (
     <>
       <h1 className="text-white text-[40px] fontWeight-fixelBold leading-[1,02]">
@@ -95,7 +98,7 @@ export const AddWords = ({ close }) => {
           onChange={(e) => setWordUa(e.target.value)}
           value={wordUa}
           pattern="/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u"
-          className="outline-none mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
+          className="outline-none  text-[#fff] mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
           placeholder="трошки"
         />
         <p className="flex text-[#fff] items-center justify-center ml-[32px]">
@@ -113,7 +116,7 @@ export const AddWords = ({ close }) => {
           onChange={(e) => setWordEng(e.target.value)}
           value={wordEng}
           pattern="/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/"
-          className="outline-none border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
+          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
           placeholder="a littel"
         />
         <p className="flex text-[#fff] items-center justify-center ml-[32px]">

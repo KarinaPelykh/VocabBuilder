@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { EditWord, addWord, getCategories, getStatistics } from "./operations";
+import {
+  DeleteWord,
+  EditWord,
+  GetOwnWords,
+  addWord,
+  getCategories,
+  getStatistics,
+} from "./operations";
 const initialState = {
-  words: [],
   categories: [],
   newWord: [],
+  ownWord: [],
   error: "",
   loader: false,
   statistics: "",
@@ -35,7 +42,21 @@ export const wordsSlice = createSlice({
         state.loader = true;
       })
       .addCase(EditWord.fulfilled, (state, action) => {
-        state.newWord.push(action.payload);
+        const updatedWord = action.payload;
+        const index = state.newWord.findIndex(
+          (word) => word._id === updatedWord._id
+        );
+        if (index !== -1) {
+          state.newWord[index] = updatedWord;
+        }
+      })
+      .addCase(DeleteWord.fulfilled, (state, action) => {
+        state.newWord = state.newWord.filter(
+          (newWord) => newWord._id !== action.payload
+        );
+      })
+      .addCase(GetOwnWords.fulfilled, (state, action) => {
+        state.ownWord = action.payload;
       }),
 });
 export const wordsReducer = wordsSlice.reducer;

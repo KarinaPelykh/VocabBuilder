@@ -1,4 +1,5 @@
 export const Error = ({ prop }) => {
+  console.log(prop);
   return (
     <div className="flex">
       {prop && (
@@ -23,7 +24,7 @@ export const Error = ({ prop }) => {
         </svg>
       )}
       <p className="ml-[4px] text-[12px] leading-[1,05] font-fixelRegular text-[#ff0000]">
-        {prop}
+        {prop ? "Enter valid password" : prop}
       </p>
     </div>
   );

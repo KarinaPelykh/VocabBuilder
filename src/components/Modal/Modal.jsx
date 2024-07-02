@@ -1,9 +1,34 @@
 "use client";
-export const Modal = ({ children, onClick, isOpen }) => {
+
+import { useEffect } from "react";
+
+export const Modal = ({ children, onClick, isOpen, close }) => {
+  useEffect(() => {
+    const handelKeyEscape = (e) => {
+      if (e.code === "Escape") {
+        onClick();
+        document.body.style.overflow = "auto";
+      }
+    };
+    document.addEventListener("keydown", handelKeyEscape);
+    return () => {
+      document.removeEventListener("keydown", handelKeyEscape);
+    };
+  }, [onClick]);
+
+  const handelCloseClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClick();
+      document.body.style.overflow = "auto";
+    }
+  };
   return (
     <>
       {isOpen && (
-        <div className=" bg-[#12141733] w-[100%] h-[100%] fixed top-0 left-0 z-10 flex justify-center items-center">
+        <div
+          className=" bg-[#12141733] w-[100%] h-[100%] fixed top-0 left-0 z-10 flex justify-center items-center"
+          onClick={handelCloseClick}
+        >
           <div className="bg-green w-[628px]   absolute rounded-[30px] p-[64px]">
             <button
               onClick={onClick}

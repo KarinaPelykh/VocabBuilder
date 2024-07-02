@@ -41,18 +41,15 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
         state.error = action.payload;
       })
-      .addCase(LogOut.pending, (state, action) => {
+      .addCase(LogOut.pending, (state) => {
         state.loader = true;
       })
+      // .addCase(RefreshUser.pending, (state) => {
+      //   state.isRefresh = true;
+      // })
       .addCase(RefreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.isRefresh = false;
-      })
-      .addCase(RefreshUser.pending, (state, action) => {
-        state.isRefresh = true;
-      })
-      .addCase(RefreshUser.rejected, (state, action) => {
-        state.isRefresh = false;
+        state.isLoggedIn = true;
       });
   },
 });
