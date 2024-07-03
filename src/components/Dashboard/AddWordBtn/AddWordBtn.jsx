@@ -6,11 +6,12 @@ import useToggle from "../../../hooks/useToggle";
 import { AddWords } from "../../Modal/AddWord";
 import { Modal } from "../../Modal/Modal";
 export const AddWordBtn = () => {
-  const { open, close, toggle, isOpen } = useToggle();
-  console.log(open, close, toggle, isOpen);
+  const { open, close, isOpen } = useToggle();
+
   return (
     <div className="flex">
       <Statistics />
+
       <Button onClick={open} text={"Add word"} svg="hidden">
         <svg
           className="ml-[8px]"
@@ -36,7 +37,7 @@ export const AddWordBtn = () => {
           />
         </svg>
       </Button>
-      <Link href="recommend" className=" flex ml-[16px]">
+      <Link href="training" className=" flex ml-[16px]">
         Train oneseif
         <svg
           className="ml-[8px]"

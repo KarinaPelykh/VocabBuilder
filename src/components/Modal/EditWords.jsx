@@ -9,7 +9,8 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
   const [wordUA, setWordUA] = useState(ua);
   const [wordEN, setWordEN] = useState(en);
   const dispatch = useDispatch();
-  const handelEditWord = () => {
+  const handelEditWord = (e) => {
+    e.preventDefault();
     dispatch(EditWord({ en: wordEN, ua: wordUA, category, isIrregular, id }))
       .unwrap()
       .then(() => {
@@ -21,7 +22,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
       .catch((error) => toast.error(error));
   };
   return (
-    <div>
+    <form onSubmit={handelEditWord}>
       <label className="flex">
         <input
           onChange={(e) => setWordUA(e.target.value)}
@@ -59,7 +60,6 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
 
       <div className=" flex justify-between mt-[32px]">
         <Button
-          onClick={handelEditWord}
           type="submit"
           text={"Save"}
           className="bg-white text-black px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
@@ -73,6 +73,6 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
           className="bg-transparent text-white border border-[#fff] px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
         />
       </div>
-    </div>
+    </form>
   );
 };

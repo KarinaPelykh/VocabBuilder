@@ -5,7 +5,6 @@ import { RefreshUser } from "../redux/auth/operations";
 import { refreshSelector } from "../redux/auth/selector";
 export const Refresh = ({ children }) => {
   const refershUser = useSelector(refreshSelector);
-  console.log("refershUser", refershUser);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(RefreshUser());

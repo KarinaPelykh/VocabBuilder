@@ -1,9 +1,9 @@
-import { FormSearch } from "./FormSearch/FormSearch";
+import { Filters } from "./Filters/Filters";
 import { AddWordBtn } from "./AddWordBtn/AddWordBtn";
 export const Dashboard = () => {
   return (
-    <div className="mt-[80px] flex justify-between items-center">
-      <FormSearch />
+    <div className="mt-[80px] flex  items-center">
+      <Filters />
       <AddWordBtn />
     </div>
   );

@@ -2,28 +2,26 @@
 import { Button } from "../Button/Button";
 import { Icon } from "../Icon";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { categoriesSelector } from "../../redux/words/selector";
+import { useDispatch } from "react-redux";
 import { addWord } from "../../redux/words/operations";
 import { toast } from "react-toastify";
+import { Select } from "../Select/Select";
 export const AddWords = ({ close }) => {
   const [wordEng, setWordEng] = useState("");
   const [wordUa, setWordUa] = useState("");
-  const [isVerb, setIsVerb] = useState(true);
   const [category, setCategory] = useState("verb");
-  const [isIrregular, setIsIrregular] = useState(false);
-  const categories = useSelector(categoriesSelector);
+  const [isIrregular, setIsIrregular] = useState(null);
 
   const dispatch = useDispatch();
-  const handleVerb = (e) => {
-    const option = e.target.value;
-    setCategory(e.target.value);
-    option === "verb" ? setIsVerb(true) : setIsVerb(false);
-  };
 
-  const handleAddWord = () => {
+  const handleAddWord = (e) => {
+    e.preventDefault();
     dispatch(
-      addWord({ en: wordEng, ua: wordUa, category, isIrregular: isIrregular })
+      addWord(
+        category === "verb"
+          ? { en: wordEng, ua: wordUa, category, isIrregular }
+          : { en: wordEng, ua: wordUa, category }
+      )
     )
       .unwrap()
       .then(() => {
@@ -33,14 +31,13 @@ export const AddWords = ({ close }) => {
         setIsIrregular(false);
         close();
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => {
+        toast.error(error);
+        console.log(error);
+      });
   };
-  const handleIsIrregular = (e) => {
-    setIsIrregular(e.target.value === "Irregular");
-  };
-
   return (
-    <>
+    <form onSubmit={handleAddWord}>
       <h1 className="text-white text-[40px] fontWeight-fixelBold leading-[1,02]">
         Add word
       </h1>
@@ -49,55 +46,18 @@ export const AddWords = ({ close }) => {
         the language base and expanding the vocabulary.
       </p>
       <div className="flex flex-col mt-[32px]">
-        <select
-          onChange={handleVerb}
-          defaultValue={"Verb"}
-          className="w-[204px] bg-green  border border-[#fff] rounded-[15px] px-[24px] py-[12px] text-[#fff] mb-[8px] outline-none"
-        >
-          {categories.map((item, index) => (
-            <option key={index}>{item}</option>
-          ))}
-        </select>
-
-        {isVerb && (
-          <div className="relative">
-            <div className="flex mb-[38px] ">
-              <label for="htmlFor" className="text-[#fff]">
-                <input
-                  className="bg-green outline-none"
-                  type="radio"
-                  value="Regular"
-                  checked={isIrregular === false}
-                  onChange={handleIsIrregular}
-                />
-                Regular
-              </label>
-              <label for="htmlFor" className="text-[#fff]">
-                <input
-                  className="bg-green outline-none"
-                  type="radio"
-                  value="Irregular"
-                  checked={isIrregular === true}
-                  onChange={handleIsIrregular}
-                />
-                Irregular
-              </label>
-            </div>
-
-            {isIrregular && (
-              <p className=" text-[#fff] absolute top-[25px] left-0">
-                Such data must be entered in the format I form-II form-III form.
-              </p>
-            )}
-          </div>
-        )}
+        <Select
+          setCategory={setCategory}
+          setIsIrregular={setIsIrregular}
+          isIrregular={isIrregular}
+        />
       </div>
 
       <label className="flex">
         <input
           onChange={(e) => setWordUa(e.target.value)}
           value={wordUa}
-          pattern="/^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u"
+          // pattern="^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u"
           className="outline-none  text-[#fff] mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
           placeholder="трошки"
         />
@@ -115,7 +75,7 @@ export const AddWords = ({ close }) => {
         <input
           onChange={(e) => setWordEng(e.target.value)}
           value={wordEng}
-          pattern="/\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/"
+          // pattern="\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/"
           className="outline-none text-[#fff] border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
           placeholder="a littel"
         />
@@ -132,7 +92,6 @@ export const AddWords = ({ close }) => {
 
       <div className=" flex justify-between mt-[32px]">
         <Button
-          onClick={handleAddWord}
           type="submit"
           text={"Save"}
           className="bg-white text-black px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
@@ -146,6 +105,6 @@ export const AddWords = ({ close }) => {
           className="bg-transparent text-white border border-[#fff] px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
         />
       </div>
-    </>
+    </form>
   );
 };

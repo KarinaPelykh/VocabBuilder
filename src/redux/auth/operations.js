@@ -28,7 +28,6 @@ export const userSignIn = createAsyncThunk(
         password,
       });
       setToken(data.token);
-      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -41,7 +40,6 @@ export const LogOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instance.post("/users/signout");
-      console.log(data);
       clear();
     } catch (error) {
       return rejectWithValue(error);
@@ -53,13 +51,11 @@ export const RefreshUser = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const persist = getState().auth.token;
-      console.log("token", persist);
       if (!persist) {
         return;
       }
       setToken(persist);
       const { data } = await instance.get("/users/current");
-      console.log("RefreshUser", data);
       return data;
     } catch (error) {
       return rejectWithValue(error);

@@ -1,19 +1,18 @@
 "use client";
-import { useState } from "react";
-import { Filters } from "../Filters/Filters";
-import { useDebouncedCallback } from "use-debounce";
+// import { useState } from "react";
+// import { useDebouncedCallback } from "use-debounce";
 import { Icon } from "../../Icon";
 
-export const FormSearch = () => {
-  const [word, setWord] = useState("");
-  const debounced = useDebouncedCallback((word) => {
-    setWord(word);
-  }, 300);
+export const FormSearch = ({ handleChangeINput }) => {
+  // const [word, setWord] = useState("");
+  // const debounced = useDebouncedCallback((word) => {
+  //   setWord(word);
+  // }, 300);
 
-  const handleChangeINput = (e) => {
-    const value = e.target.value.trim();
-    debounced(value);
-  };
+  // const handleChangeINput = (e) => {
+  //   const value = e.target.value.trim();
+  //   debounced(value);
+  // };
   return (
     <div className="flex mr-[8px]">
       <form className="mr-[8px] relative">
@@ -31,7 +30,6 @@ export const FormSearch = () => {
           className="fill-[#fff] stroke-black absolute top-[15px] right-[15px]"
         />
       </form>
-      <Filters />
     </div>
   );
 };

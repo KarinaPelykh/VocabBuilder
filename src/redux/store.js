@@ -12,7 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { AuthReducer } from "./auth/authSlice";
 import { wordsReducer } from "./words/wordSlice";
-
+import { FilterReducer } from "./words/filterSlice";
 const persistConfig = {
   key: "auth",
   storage,
@@ -24,6 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedReducer,
     words: wordsReducer,
+    filter: FilterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

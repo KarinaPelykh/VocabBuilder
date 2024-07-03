@@ -16,6 +16,7 @@ export const ActionButton = ({
 }) => {
   const dispatch = useDispatch();
   const { open, close, isOpen } = useToggle();
+
   const handelDelete = () => {
     dispatch(DeleteWord({ id }))
       .unwrap()

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetOwnWords, getCategories } from "../../redux/words/operations";
 import { Icon } from "../Icon";
 
-import { wordSelector } from "../../redux/words/selector";
+import { newWordSelector } from "../../redux/words/selector";
 import { Item } from "./Item/Item";
 export const WordsTable = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export const WordsTable = () => {
     dispatch(GetOwnWords());
   }, [dispatch]);
 
-  const word = useSelector(wordSelector);
+  const word = useSelector(newWordSelector);
   console.log("word", word);
   return (
     <div className="bg-[#fcfcfc] p-[18px] mt-[28px] rounded-[15px] ">
