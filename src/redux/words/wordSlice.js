@@ -13,6 +13,7 @@ const initialState = {
   error: "",
   loader: false,
   statistics: "",
+  totalPage: 1,
 };
 export const wordsSlice = createSlice({
   name: "words",
@@ -44,7 +45,9 @@ export const wordsSlice = createSlice({
         );
       })
       .addCase(GetOwnWords.fulfilled, (state, action) => {
-        state.words = action.payload;
-      }),
+        state.words = action.payload.results;
+        state.totalPage = action.payload.totalPages;
+      })
+     
 });
 export const wordsReducer = wordsSlice.reducer;

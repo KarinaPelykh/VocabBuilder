@@ -73,11 +73,15 @@ export const DeleteWord = createAsyncThunk(
 );
 export const GetOwnWords = createAsyncThunk(
   "get/ownWord",
-  async (params, { rejectWithValue }) => {
+  async (searchParam, { rejectWithValue }) => {
     try {
-      const { data } = await instance.get("/words/own", params);
-      console.log("data", data);
-      return data.results;
+      const { page = 1, limit = 7 } = searchParam;
+      console.log(page, limit);
+      const { data } = await instance.get(
+        `/words/own?page=${page}&limit=${limit}`
+      );
+      console.log("data", data.results);
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

@@ -1,12 +1,15 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetOwnWords, getCategories } from "../../redux/words/operations";
 import { Icon } from "../Icon";
-
-import { newWordSelector } from "../../redux/words/selector";
+import { WordsPagination } from "../WordsPagination/WordsPagination";
+import { selectFilter } from "../../redux/words/selector";
 import { Item } from "./Item/Item";
 export const WordsTable = () => {
+  const [limit, setLimit] = useState(7);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,14 +17,14 @@ export const WordsTable = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(GetOwnWords());
-  }, [dispatch]);
+    dispatch(GetOwnWords({ page: currentPage, limit }));
+  }, [dispatch, limit, currentPage]);
 
-  const word = useSelector(newWordSelector);
-  console.log("word", word);
+  const word = useSelector(selectFilter);
+
   return (
     <div className="bg-[#fcfcfc] p-[18px] mt-[28px] rounded-[15px] ">
-      <table className="w-[100%] ">
+      <table className="w-[100%] h-[640px]">
         <thead className="">
           <tr className=" bg-[#8bb0a519]  ">
             <th className=" border-r border-[#DBDBDB]  rounded-tl-[15px] p-[22px] text-[20px] font-fixelMedium text-black ">
@@ -67,6 +70,10 @@ export const WordsTable = () => {
           })}
         </tbody>
       </table>
+      <WordsPagination
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
