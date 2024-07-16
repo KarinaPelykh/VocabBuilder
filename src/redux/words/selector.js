@@ -3,7 +3,7 @@ import { createSelector } from "@reduxjs/toolkit";
 export const categoriesSelector = (state) => state.words.categories;
 export const statisticsSelector = (state) => state.words.statistics;
 export const newWordSelector = (state) => state.words.words;
-
+export const allWordsSelector = (state) => state.words.allWords;
 export const filterValueSelector = (state) => state.filter.value;
 export const filterCategoriesSelector = (state) => state.filter.category;
 export const filterCategoriesIsIrregularSelector = (state) =>
@@ -37,5 +37,3 @@ export const selectFilter = createSelector(
 );
 
 export const totalPageSelect = (state) => state.words.totalPage;
-// export const pageSelect = (state) => state.words.page;
-// export const perPageSelect = (state) => state.words.perPage;

@@ -58,10 +58,10 @@ export const Filters = () => {
         ))}
       </select>
       {isVerb ? (
-        <>
-          <label for="htmlFor" className={"text-[#000]"}>
+        <div className="flex items-center ml-[8px] ">
+          <label for="htmlFor" className={"text-[#000] mr-[16px] "}>
             <input
-              className="bg-green"
+              className="border-green"
               type="radio"
               value="Regular"
               checked={irregular === false}
@@ -79,7 +79,7 @@ export const Filters = () => {
             />
             Irregular
           </label>
-        </>
+        </div>
       ) : null}
     </div>
   );

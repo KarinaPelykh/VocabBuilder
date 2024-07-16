@@ -1,15 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetOwnWords, getCategories } from "../../redux/words/operations";
+import {
+  GetOwnWords,
+  getCategories,
+  getWordsAll,
+} from "../../redux/words/operations";
 import { Icon } from "../Icon";
 import { WordsPagination } from "../WordsPagination/WordsPagination";
-import { selectFilter } from "../../redux/words/selector";
+import { allWordsSelector, selectFilter } from "../../redux/words/selector";
 import { Item } from "./Item/Item";
+import { usePathname } from "next/navigation";
 export const WordsTable = () => {
   const [limit, setLimit] = useState(7);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const pathname = usePathname();
+  const route = pathname === "/recommend";
+  const word = useSelector(selectFilter);
+  const allWords = useSelector(allWordsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,8 +28,11 @@ export const WordsTable = () => {
     dispatch(GetOwnWords({ page: currentPage, limit }));
   }, [dispatch, limit, currentPage]);
 
-  const word = useSelector(selectFilter);
+  useEffect(() => {
+    dispatch(getWordsAll({ page: currentPage, limit }));
+  }, [dispatch, currentPage, limit]);
 
+  console.log("allWords", allWords);
   return (
     <div className="bg-[#fcfcfc] p-[18px] mt-[28px] rounded-[15px] ">
       <table className="w-[100%] h-[640px]">
@@ -48,31 +59,37 @@ export const WordsTable = () => {
             <th className="border-r border-[#DBDBDB] p-[22px] text-[20px] font-fixelMedium text-black ">
               Category
             </th>
-            <th className="border-r border-[#DBDBDB] p-[22px] text-[20px] font-fixelMedium text-black ">
-              Progress
-            </th>
+            {route ? null : (
+              <th className="border-r border-[#DBDBDB] p-[22px] text-[20px] font-fixelMedium text-black ">
+                Progress
+              </th>
+            )}
+
             <th className=" rounded-tr-[15px]"></th>
           </tr>
         </thead>
         <tbody className="bg-[#fcfcf] ">
-          {word.flatMap(({ en, ua, category, progress, _id, isIrregular }) => {
-            return (
-              <Item
-                key={_id}
-                _id={_id}
-                en={en}
-                ua={ua}
-                category={category}
-                progress={progress}
-                isIrregular={isIrregular}
-              />
-            );
-          })}
+          {(route ? allWords : word).flatMap(
+            ({ en, ua, category, progress, _id, isIrregular }) => {
+              return (
+                <Item
+                  key={_id}
+                  _id={_id}
+                  en={en}
+                  ua={ua}
+                  category={category}
+                  progress={progress}
+                  isIrregular={isIrregular}
+                  route={route}
+                />
+              );
+            }
+          )}
         </tbody>
       </table>
       <WordsPagination
-        setCurrentPage={setCurrentPage}
         currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </div>
   );

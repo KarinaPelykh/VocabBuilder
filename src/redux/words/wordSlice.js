@@ -6,10 +6,12 @@ import {
   addWord,
   getCategories,
   getStatistics,
+  getWordsAll,
 } from "./operations";
 const initialState = {
   categories: [],
   words: [],
+  allWords: [],
   error: "",
   loader: false,
   statistics: "",
@@ -48,6 +50,10 @@ export const wordsSlice = createSlice({
         state.words = action.payload.results;
         state.totalPage = action.payload.totalPages;
       })
-     
+      .addCase(getWordsAll.fulfilled, (state, action) => {
+        state.allWords = action.payload.results;
+        console.log("state", action.payload.totalPages);
+        state.totalPage = action.payload.totalPages;
+      }),
 });
 export const wordsReducer = wordsSlice.reducer;

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../../Api/api";
+import axios from "axios";
 
 export const getCategories = createAsyncThunk(
   "get/categories",
@@ -76,11 +77,26 @@ export const GetOwnWords = createAsyncThunk(
   async (searchParam, { rejectWithValue }) => {
     try {
       const { page = 1, limit = 7 } = searchParam;
-      console.log(page, limit);
       const { data } = await instance.get(
         `/words/own?page=${page}&limit=${limit}`
       );
-      console.log("data", data.results);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const getWordsAll = createAsyncThunk(
+  "get/all/words",
+  async (searchParam, { rejectWithValue }) => {
+    try {
+      const { page = 1, limit = 7 } = searchParam;
+      const { data } = await instance.get(
+        `/words/all?page=${page}&limit=${limit}`
+      );
+      console.log("getWordsAll", data);
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
