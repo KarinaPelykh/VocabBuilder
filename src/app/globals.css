@@ -14,3 +14,37 @@ body {
 input {
   background-color: transparent;
 }
+.active {
+  background-color: #85aa9f;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  border: 1px solid #dbdbdb;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+}
+
+.activeButton {
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid #dbdbdb;
+  width: 32px;
+  height: 32px;
+  color: #85aa9f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

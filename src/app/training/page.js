@@ -1,9 +1,9 @@
 import { Container } from "../../components/Container/Container";
-import { Grating } from "../../components/UI/Grating";
+import { TrainingRoom } from "../../components/TrainingRoom/TrainingRoom";
 export default function Training() {
   return (
     <Container>
-      <Grating />
+      <TrainingRoom />
     </Container>
   );
 }

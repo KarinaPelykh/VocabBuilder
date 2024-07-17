@@ -12,7 +12,7 @@ import { GetOwnWords } from "../../../redux/words/operations";
 export const Filters = () => {
   const [word, setWord] = useState("");
   const [shearCategories, setShearCategories] = useState("");
-  const [isVerb, setIsVerb] = useState(true);
+  const [isVerb, setIsVerb] = useState(false);
   const [irregular, setIrregular] = useState(null);
   const categories = useSelector(categoriesSelector);
   const dispatch = useDispatch();
@@ -53,6 +53,7 @@ export const Filters = () => {
         onChange={handleVerb}
         className="py-[12px] px-[24px] w-[164px] outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px]"
       >
+        <option>Categiries</option>
         {categories.map((item, index) => (
           <option key={index}>{item}</option>
         ))}

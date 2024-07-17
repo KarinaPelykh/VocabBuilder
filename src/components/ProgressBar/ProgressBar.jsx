@@ -2,7 +2,7 @@ import { Circle } from "rc-progress";
 
 export const ProgressBar = ({ progress }) => {
   return (
-    <td className=" flex p-[22px] border border-[#DBDBDB] h-[100%]">
+    <div className="flex">
       {progress}%
       <Circle
         className="w-[26px] h-[26px] ml-[16px] "
@@ -12,6 +12,6 @@ export const ProgressBar = ({ progress }) => {
         trailColor="#D4F8D3"
         trailWidth={15}
       />
-    </td>
+    </div>
   );
 };

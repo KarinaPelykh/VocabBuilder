@@ -103,3 +103,29 @@ export const getWordsAll = createAsyncThunk(
     }
   }
 );
+
+export const AddNewWord = createAsyncThunk(
+  "add/newWords",
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.post(`/words/add/${id}`);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const AllTasks = createAsyncThunk(
+  "get/allTasks",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await instance.get("/words/tasks");
+      console.log("data", data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
+  }
+);

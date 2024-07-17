@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  AddNewWord,
+  AllTasks,
   DeleteWord,
   EditWord,
   GetOwnWords,
@@ -16,6 +18,8 @@ const initialState = {
   loader: false,
   statistics: "",
   totalPage: 1,
+  totals: 0,
+  tasks: [],
 };
 export const wordsSlice = createSlice({
   name: "words",
@@ -52,8 +56,13 @@ export const wordsSlice = createSlice({
       })
       .addCase(getWordsAll.fulfilled, (state, action) => {
         state.allWords = action.payload.results;
-        console.log("state", action.payload.totalPages);
-        state.totalPage = action.payload.totalPages;
+        state.totals = action.payload.totalPages;
+      })
+      .addCase(AddNewWord.fulfilled, (state, action) => {
+        state.words.push(action.payload);
+      })
+      .addCase(AllTasks.fulfilled, (state, action) => {
+        state.tasks = action.payload;
       }),
 });
 export const wordsReducer = wordsSlice.reducer;
