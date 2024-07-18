@@ -49,11 +49,11 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
         breakLabel="..."
         className="flex items-center justify-center"
         nextLabel=">"
+        previousLabel="<"
         activeClassName="active"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="<"
         marginPagesDisplayed={1}
         renderOnZeroPageCount={null}
         pageClassName="page"

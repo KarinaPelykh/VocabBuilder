@@ -129,3 +129,15 @@ export const AllTasks = createAsyncThunk(
     }
   }
 );
+// export const AddTasks = createAsyncThunk(
+//   "get/allTasks",
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const { data } = await instance.post("/words/answers");
+//       console.log("data", data);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.response.data.message);
+//     }
+//   }
+// );
