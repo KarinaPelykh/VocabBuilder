@@ -1,8 +1,9 @@
 "use client";
 
+import clsx from "clsx";
 import { useEffect } from "react";
 
-export const Modal = ({ children, onClick, isOpen, close }) => {
+export const Modal = ({ children, onClick, isOpen, close, className }) => {
   useEffect(() => {
     const handelKeyEscape = (e) => {
       if (e.code === "Escape") {
@@ -29,7 +30,12 @@ export const Modal = ({ children, onClick, isOpen, close }) => {
           className=" bg-[#12141733] w-[100%] h-[100%] fixed top-0 left-0 z-10 flex justify-center items-center"
           onClick={handelCloseClick}
         >
-          <div className="bg-green w-[628px]   absolute rounded-[30px] p-[64px]">
+          <div
+            className={clsx(
+              "bg-green w-[628px]   absolute rounded-[30px] p-[64px]",
+              className && className
+            )}
+          >
             <button
               onClick={onClick}
               className="absolute top-[20px] right-[20px] "

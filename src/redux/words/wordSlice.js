@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  AddMadeTasks,
   AddNewWord,
   AllTasks,
   DeleteWord,
@@ -62,6 +63,9 @@ export const wordsSlice = createSlice({
         state.words.push(action.payload);
       })
       .addCase(AllTasks.fulfilled, (state, action) => {
+        state.tasks = action.payload;
+      })
+      .addCase(AddMadeTasks.fulfilled, (state, action) => {
         state.tasks = action.payload;
       }),
 });

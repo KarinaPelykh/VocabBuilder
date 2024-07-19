@@ -1,6 +1,13 @@
+"use client";
 import { Circle } from "rc-progress";
+import { useSelector } from "react-redux";
+import { TasksSelect } from "../../redux/words/selector";
 
-export const ProgressBar = ({ progress }) => {
+export const ProgressBar = ({ progress, lengthTasks = 0 }) => {
+  // const doneTask = useSelector(TasksSelect);
+  // const answeredTasks = doneTask?.tasks?.length || 0;
+  // const progressUser = (answeredTasks / lengthTasks) * 100;
+  // console.log(progressUser);
   return (
     <div className="flex">
       {progress}%
