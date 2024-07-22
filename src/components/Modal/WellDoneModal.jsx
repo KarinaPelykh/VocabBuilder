@@ -29,7 +29,7 @@ export const WellDoneModal = () => {
           <h3 className="text-[rgba(252,252,252,0.5)] text-[16px] leading-[1.5] font-fixelRegular">
             Mistakes:
           </h3>
-          {doneTask.map(({ en, isDone, _id }) => {
+          {doneTask?.map(({ en, isDone, _id }) => {
             return isDone ? null : (
               <p
                 className="text-[20px] text-[#fff] font-fixelMedium mb-[4px]"

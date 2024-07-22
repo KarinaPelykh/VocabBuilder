@@ -96,7 +96,7 @@ export const getWordsAll = createAsyncThunk(
       const { data } = await instance.get(
         `/words/all?page=${page}&limit=${limit}`
       );
-      console.log("getWordsAll", data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -109,7 +109,7 @@ export const AddNewWord = createAsyncThunk(
   async ({ id }, { rejectWithValue }) => {
     try {
       const { data } = await instance.post(`/words/add/${id}`);
-      console.log(data);
+   
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -122,7 +122,7 @@ export const AllTasks = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instance.get("/words/tasks");
-      console.log("data", data);
+     
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -134,7 +134,7 @@ export const AddMadeTasks = createAsyncThunk(
   async ({ madeTask }, { rejectWithValue }) => {
     try {
       const { data } = await instance.post("/words/answers", madeTask);
-      console.log("AddMadeTasks", data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

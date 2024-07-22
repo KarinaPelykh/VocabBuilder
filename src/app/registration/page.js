@@ -1,6 +1,6 @@
-import { Hero } from "../../components/Hero/Hero";
-import { Logo } from "../../components/Logo/Logo";
-import { RegistrationForm } from "../../components/RegistrationForm/RegistrationForm";
+import { Hero } from "../../components/Hero/Hero.jsx";
+import { Logo } from "../../components/Logo/Logo.jsx";
+import { RegistrationForm } from "../../components/RegistrationForm/RegistrationForm.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 
 export default function Registration() {

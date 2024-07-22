@@ -92,6 +92,7 @@ export const WordsTable = () => {
           </tbody>
         </table>
       </div>
+
       <WordsPagination
         limit={limit}
         currentPage={currentPage}

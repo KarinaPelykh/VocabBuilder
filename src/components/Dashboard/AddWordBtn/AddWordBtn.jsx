@@ -9,10 +9,11 @@ import { usePathname } from "next/navigation";
 import { Icon } from "../../Icon";
 export const AddWordBtn = () => {
   const { open, close, isOpen } = useToggle();
+  console.log("AddWordBtn", isOpen);
   const pathname = usePathname();
   const route = pathname === "/recommend";
   return (
-    <div className="flex">
+    <section className="flex">
       <Statistics />
       {route ? null : (
         <Button onClick={open} text={"Add word"} svg="hidden">
@@ -28,6 +29,6 @@ export const AddWordBtn = () => {
       <Modal onClick={close} isOpen={isOpen}>
         <AddWords close={close} />
       </Modal>
-    </div>
+    </section>
   );
 };

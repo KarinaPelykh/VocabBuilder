@@ -33,46 +33,50 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
     setCurrentPage(value);
   };
   return (
-    <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px]">
-      <button
-        onClick={() => {
-          handelPreviousPage(1);
-        }}
-        className={clsx(
-          currentPage !== 1 ? "text-green" : "text-[#000]",
-          "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
-        )}
-      >
-        {"<<"}
-      </button>
-      <ReactPaginate
-        breakLabel="..."
-        className="flex items-center justify-center"
-        nextLabel=">"
-        previousLabel="<"
-        activeClassName="active"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        marginPagesDisplayed={1}
-        renderOnZeroPageCount={null}
-        pageClassName="page"
-        previousClassName={currentPage === 1 ? "page" : "activeButton"}
-        nextClassName={currentPage >= totalPage ? "page" : "activeButton"}
-        breakLinkClassName="page"
-        forcePage={currentPage - 1}
-      />
-      <button
-        onClick={() => {
-          handelNextPage(pages.length);
-        }}
-        className={clsx(
-          totalPage !== currentPage ? "text-green" : "text-[#000]",
-          "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
-        )}
-      >
-        {">>"}
-      </button>
-    </div>
+    <>
+      {pageCount === 0 ? null : (
+        <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px]">
+          <button
+            onClick={() => {
+              handelPreviousPage(1);
+            }}
+            className={clsx(
+              currentPage !== 1 ? "text-green" : "text-[#000]",
+              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
+            )}
+          >
+            {"<<"}
+          </button>
+          <ReactPaginate
+            breakLabel="..."
+            className="flex items-center justify-center"
+            nextLabel=">"
+            previousLabel="<"
+            activeClassName="active"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            marginPagesDisplayed={1}
+            renderOnZeroPageCount={null}
+            pageClassName="page"
+            previousClassName={currentPage === 1 ? "page" : "activeButton"}
+            nextClassName={currentPage >= totalPage ? "page" : "activeButton"}
+            breakLinkClassName="page"
+            forcePage={currentPage - 1}
+          />
+          <button
+            onClick={() => {
+              handelNextPage(pages.length);
+            }}
+            className={clsx(
+              totalPage !== currentPage ? "text-green" : "text-[#000]",
+              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
+            )}
+          >
+            {">>"}
+          </button>
+        </div>
+      )}
+    </>
   );
 };

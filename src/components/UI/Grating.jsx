@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "../Button/Button";
 import file from "../../images/img-1@/file_desk@1x.png";
-export const Grating = () => {
+export const Grating = ({ onClick }) => {
   return (
     <section className="flex">
       <div className="mx-[auto] mt-[193px]  flex py-[17px] px-[24px] w-[902px] justify-between items-center">
@@ -16,6 +16,7 @@ export const Grating = () => {
           </p>
           <div className=" flex justify-between">
             <Button
+              onClick={onClick}
               svg="hidden"
               text="Add word"
               type="button"

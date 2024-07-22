@@ -1,23 +1,33 @@
 "use client";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 import { Circle } from "rc-progress";
-import { useSelector } from "react-redux";
-import { TasksSelect } from "../../redux/words/selector";
 
-export const ProgressBar = ({ progress, lengthTasks = 0 }) => {
-  // const doneTask = useSelector(TasksSelect);
-  // const answeredTasks = doneTask?.tasks?.length || 0;
-  // const progressUser = (answeredTasks / lengthTasks) * 100;
-  // console.log(progressUser);
+export const ProgressBar = ({
+  progress,
+  doneTasks = 0,
+  generalAmountTasks = 0,
+  className,
+  variant,
+}) => {
+  const progressUser = Math.ceil(
+    doneTasks >= 0 ? (doneTasks / generalAmountTasks) * 100 : 0
+  );
+
+  const rout = usePathname();
+  const isTraining = rout !== "/training";
   return (
-    <div className="flex">
-      {progress}%
+    <div className={clsx("flex relative", variant && variant)}>
+      <p className={!isTraining && "absolute top-[82px] right-[20px] "}>
+        {isTraining ? `${progress}%` : progressUser}
+      </p>
       <Circle
-        className="w-[26px] h-[26px] ml-[16px] "
-        strokeWidth={15}
-        percent={progress}
-        strokeColor="#2BD627"
-        trailColor="#D4F8D3"
-        trailWidth={15}
+        className={clsx("w-[26px] h-[26px] ml-[16px] ", className && className)}
+        strokeWidth={isTraining ? 15 : 8}
+        percent={isTraining ? progress : progressUser}
+        strokeColor={isTraining ? "#2BD627" : "#85AA9F"}
+        trailColor={isTraining ? "#D4F8D3" : "#ffffff"}
+        trailWidth={isTraining ? 15 : 8}
       />
     </div>
   );

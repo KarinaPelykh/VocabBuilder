@@ -31,6 +31,7 @@ export const LoginForm = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(userIsLoggedIn);
+  console.log(isLoggedIn);
   const handleShow = () => {
     setIsShow(!isShow);
   };
