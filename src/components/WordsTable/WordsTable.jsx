@@ -35,7 +35,7 @@ export const WordsTable = () => {
   return (
     <>
       <div className="bg-[#fcfcfc] p-[18px] mt-[28px] rounded-[15px] ">
-        <table className="w-[100%] h-max-[640px]">
+        <table className="w-[100%] md:h-max-[640px]">
           <thead>
             <tr className=" bg-[#8bb0a519]  ">
               <th className="  border-r border-[#DBDBDB]  rounded-tl-[15px] p-[22px] text-[20px] font-fixelMedium text-black ">
@@ -45,7 +45,7 @@ export const WordsTable = () => {
                     width="32"
                     height="32"
                     name="icon-united-kingdom"
-                    className="mr-[8px]"
+                    className=" mr-[8px]"
                   />
                 </div>
               </th>

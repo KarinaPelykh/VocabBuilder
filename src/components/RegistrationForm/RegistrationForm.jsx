@@ -64,13 +64,13 @@ export const RegistrationForm = () => {
 
   return (
     <form
-      className="xl:w-[658px] xl:h-[592px] rounded-[30px] bg-[#85aa9f19] px-[64px] py-[48px] "
+      className="px-[16px] pt-[32px] pb-[57px] rounded-t-[30px]  md:px-[64px] md:py-[48px] md:w-[628px] md:h-[592px] md:mt-[140px] xl:w-[658px] xl:h-[592px] md:rounded-[30px] bg-[#85aa9f19] xl:mt-[0px] "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-[40px] font font-fixelBold leading-[1,02] mb-[20px] text:black">
+      <h1 className="font-fixelBold  text:black text-[30px] leading-[1,07] mb-[16px] md:text-[40px]   md:leading-[1,02] md:mb-[20px] ">
         Register
       </h1>
-      <p className="text-[20px] font-fixelRegular leading-[1,05] text-[#121417cc] mb-[32px]">
+      <p className="font-fixelRegular  text-[#121417cc] leading-[1,05]  text-[16px]  mb-[16px]   md:text-[20px] md:leading-[1,05] md:mb-[32px]">
         To start using our services, please fill out the registration form
         below. All fields are mandatory:
       </p>

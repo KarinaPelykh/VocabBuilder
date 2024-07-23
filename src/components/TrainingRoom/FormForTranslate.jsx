@@ -11,12 +11,12 @@ export const FormForTranslate = ({
 }) => {
   return (
     <form onSubmit={handelSaveAnswer}>
-      <div className="mt-[16px] mb-[80px] bg-[#fff] w-[100%] h-[338px] px-[18px] py-[18px]  rounded-[15px]">
+      <div className="mt-[16px] mb-[116px] xl:mb-[80px] bg-[#fff] w-[100%] xl:h-[338px] px-[18px] py-[18px]  rounded-[15px]">
         {trainTasks &&
           trainTasks.map(({ en, ua, _id, task }) => (
-            <div key={_id} className="flex h-[100%]">
-              <div className="bg-[#FCFCFC] w-[100%] h-[auto] border-r border-[#DBDBDB] rounded-tl-[15px] rounded-bl-[15px]   px-[22px] py-[22px]">
-                <div className="flex justify-between mb-[204px] ">
+            <div key={_id} className="md:flex h-[100%]">
+              <div className="bg-[#FCFCFC] border-[#DBDBDB] w-[100%] h-[195px] border-b   rounded-tl-[15px] rounded-tr-[15px] xl:h-[auto]   xl:border-r  xl:rounded-tl-[15px] xl:rounded-bl-[15px]   px-[22px] py-[22px]">
+                <div className="flex justify-between xl:mb-[204px] ">
                   <input
                     className="outline-none w-[100%] px-[20px]"
                     value={word}
@@ -51,8 +51,8 @@ export const FormForTranslate = ({
                   />
                 )}
               </div>
-              <div className="bg-[#FCFCFC]  w-[100%] h-[auto] rounded-tr-[15px] rounded-br-[15px]   px-[22px] py-[22px]">
-                <div className="flex justify-between mb-[204px] ">
+              <div className="bg-[#FCFCFC]  w-[100%]  h-[195px] rounded-br-[15px] rounded-bl-[15px] xl:h-[auto] xl:rounded-tr-[15px] xl:rounded-br-[15px]   px-[22px] py-[22px]">
+                <div className="flex justify-between xl:mb-[204px] ">
                   <p> {task === "en" ? ua : en}</p>
 
                   <div className=" flex items-center">
@@ -73,7 +73,7 @@ export const FormForTranslate = ({
             </div>
           ))}
       </div>
-      <div className="flex  ">
+      <div className="md:flex  ">
         <Button
           onClick={handelSaveAnswer}
           svg="hidden"

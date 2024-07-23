@@ -66,13 +66,13 @@ export const LoginForm = () => {
   console.log(errors);
   return (
     <form
-      className="xl:w-[628px] xl:h-[518px] rounded-[30px] bg-[#85aa9f19] px-[64px] py-[48px] "
+      className="rounded-t-[30px] px-[16px] pt-[32px] pb-[57px] md:mb-[172px] md:mt-[140px] xl:m-0 md:w-[628px] md:h-[518px] md:rounded-[30px] bg-[#85aa9f19] md:px-[64px] md:py-[48px] "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-[40px] font font-fixelBold leading-[1,02] mb-[20px] text:black">
+      <h1 className="text:black  font-fixelBold  text-[30px] leading-[1,07] mb-[16px]  md:text-[40px]  md:leading-[1,02] mb:mb-[20px] ">
         Login
       </h1>
-      <p className="text-[20px] font-fixelRegular leading-[1,05] text-[#121417cc] mb-[32px]">
+      <p className="font-fixelRegular text-[#121417cc]  leading-[1,05] text-[16px ] mb-[40px]   md:text-[20px]    md:mb-[32px]">
         Please enter your login details to continue using our service:
       </p>
       <div className="flex flex-col mb-[32px]">

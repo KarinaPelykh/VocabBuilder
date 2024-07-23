@@ -8,7 +8,7 @@ export default function Login() {
     <section className="gradient">
       <Container>
         <Logo />
-        <div className=" xl:flex xl:flex-row-reverse items-center mt-[64px] mb-[80px]">
+        <div className="md:flex md:flex-col-reverse xl:flex-row-reverse items-center xl:mt-[64px] xl:mb-[80px]">
           <Hero />
           <LoginForm />
         </div>

@@ -11,7 +11,7 @@ export const Nav = () => {
   ];
   const pathname = usePathname();
   return (
-    <nav>
+    <nav className="hidden md:flex">
       <ul className="flex justify-center ">
         {routes.map(({ route, text, id }) => (
           <li key={id} className="mr-[28px] last:mr-0">

@@ -16,15 +16,17 @@ export const User = () => {
       .then(() => route.push("/registration"));
   };
   return (
-    <div className=" flex items-center">
-      <p className="mr-[10px] text-[20px] font-fixelMedium text-black">
-        {user?.name}
-      </p>
+    <>
+      <div className=" flex items-center">
+        <p className="  font-fixelMedium text-black  text-[16px]   mr-[8px] md:mr-[10px] md:text-[20px]">
+          {user?.name}
+        </p>
 
-      <div className="rounded-radii bg-green w-[48px] h-[48px] flex justify-center items-center">
-        <Icon width="16" height="16" name="user" />
+        <div className="rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center">
+          <Icon width="16" height="16" name="user" />
+        </div>
+        <Button text="Log out" onClick={handelLogOut} />
       </div>
-      <Button text="Log out" onClick={handelLogOut} />
-    </div>
+    </>
   );
 };

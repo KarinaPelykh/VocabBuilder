@@ -5,12 +5,16 @@
 body {
   background-color: #f8f8f8;
 }
-.gradient {
-  background-image: url(../images/background.png);
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: bottom right;
+
+@media screen and (min-width: 768px) {
+  .gradient {
+    background-image: url(../images/background.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
 }
+
 input {
   background-color: transparent;
 }

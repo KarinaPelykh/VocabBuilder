@@ -8,7 +8,7 @@ export const Header = () => {
     <header className="bg-[#fff] ">
       <Container>
         <div className="flex justify-between items-center">
-          <Logo />
+          <Logo className="" />
           <Nav />
           <User />
         </div>
