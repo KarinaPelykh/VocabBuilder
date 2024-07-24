@@ -42,7 +42,7 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
             }}
             className={clsx(
               currentPage !== 1 ? "text-green" : "text-[#000]",
-              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
+              "rounded-[8px]  text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
             )}
           >
             {"<<"}

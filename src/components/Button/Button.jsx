@@ -6,7 +6,7 @@ export const Button = ({ text, onClick, children, className, svg, type }) => {
     <button
       type={type}
       className={clsx(
-        "ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center",
+        "xl:ml-[16px] text-[16px] font-fixelMedium leading-[1,05] flex justify-center items-center",
         className
       )}
       onClick={onClick}

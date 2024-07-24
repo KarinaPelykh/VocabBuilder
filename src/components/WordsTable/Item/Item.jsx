@@ -6,6 +6,8 @@ import { ActionButton } from "../../Modal/ActionButton";
 import { ProgressBar } from "../../ProgressBar/ProgressBar";
 import { AddNewWord } from "../../../redux/words/operations";
 import { toast } from "react-toastify";
+import clsx from "clsx";
+import useSizeWindow from "../../../hooks/useSizeWindow";
 export const Item = ({
   en,
   ua,
@@ -16,8 +18,10 @@ export const Item = ({
   route,
 }) => {
   const { toggle, close, isOpen } = useToggle();
+  const { size } = useSizeWindow();
 
   const dispatch = useDispatch();
+
   const handelAddDictionary = () => {
     dispatch(AddNewWord({ id: _id }))
       .then(() => {
@@ -27,22 +31,34 @@ export const Item = ({
         toast.error(error);
       });
   };
+
   return (
-    <tr className="relative h-[72px]">
-      <td className="p-[22px] border border-[#DBDBDB] border-l-0 ">{en}</td>
-      <td className="p-[22px] border border-[#DBDBDB]">{ua}</td>
-      <td className="p-[22px] border border-[#DBDBDB]">{category}</td>
+    <tr className="relative ">
+      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px]">
+        {en}
+      </td>
+      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] ">
+        {ua}
+      </td>
+      <td
+        className={clsx(
+          " border border-[#DBDBDB]   font-fixelMedium hidden md:text-[18px] md:p-[22px]  md:flex",
+          route && "!flex px-[14px] py-[16px] text-[14px] "
+        )}
+      >
+        {category}
+      </td>
       {route ? null : (
-        <td className="p-[22px] border border-[#DBDBDB]">
+        <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] md:text-[18px]    md:p-[22px]  ">
           <ProgressBar progress={progress} />
         </td>
       )}
-      <td className="p-[22px] border border-[#DBDBDB] border-r-0 w-fit">
+      <td className="px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]  ">
         <Button
           onClick={route ? handelAddDictionary : toggle}
-          text={route ? "Add to dictionary" : "..."}
+          text={route ? `${size <= 767 ? "" : "Add to dictionary"}` : "..."}
           svg={route ? "flex stroke-green" : "hidden"}
-          className="text-[16px]"
+          className={clsx("text-[16px] ")}
         />
       </td>
       {isOpen && (

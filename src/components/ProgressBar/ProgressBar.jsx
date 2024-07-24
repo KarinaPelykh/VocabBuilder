@@ -18,11 +18,19 @@ export const ProgressBar = ({
   const isTraining = rout !== "/training";
   return (
     <div className={clsx("flex relative", variant && variant)}>
-      <p className={!isTraining && "absolute top-[82px] right-[20px] "}>
+      <p
+        className={clsx(
+          !isTraining && "absolute top-[82px] right-[20px] ",
+          "hidden md:flex"
+        )}
+      >
         {isTraining ? `${progress}%` : progressUser}
       </p>
       <Circle
-        className={clsx("w-[26px] h-[26px] ml-[16px] ", className && className)}
+        className={clsx(
+          "w-[26px] h-[26px] md:ml-[16px] ",
+          className && className
+        )}
         strokeWidth={isTraining ? 15 : 8}
         percent={isTraining ? progress : progressUser}
         strokeColor={isTraining ? "#2BD627" : "#85AA9F"}

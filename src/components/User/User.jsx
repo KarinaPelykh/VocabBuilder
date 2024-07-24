@@ -25,7 +25,12 @@ export const User = () => {
         <div className="rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center">
           <Icon width="16" height="16" name="user" />
         </div>
-        <Button text="Log out" onClick={handelLogOut} />
+        <Button
+          text="Log out"
+          onClick={handelLogOut}
+          className="hidden xl:flex"
+          svg="hidden"
+        />
       </div>
     </>
   );

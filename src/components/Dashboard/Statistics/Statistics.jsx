@@ -12,8 +12,11 @@ export const Statistics = () => {
     dispatch(getStatistics());
   }, [dispatch]);
   return (
-    <p className="mr-[16px]">
-      To study: <span>{statistic?.totalCount}</span>
+    <p className="text-[14px] font-fixelMedium text-gray mb-[11px]   flex items-center md:mb-0 md:text-[16px] md:mr-[16px]">
+      To study:
+      <span className="text-[20px]  font-fixelMedium text-black ml-[8px]">
+        {statistic?.totalCount}
+      </span>
     </p>
   );
 };

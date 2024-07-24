@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { userIsLoggedIn } from "../../redux/auth/selector";
 import { userSignUp } from "../../redux/auth/operations";
 import { Icon } from "../Icon";
+import { toast } from "react-toastify";
 const schema = yup
   .object({
     name: yup.string().required(),
@@ -48,7 +49,11 @@ export const RegistrationForm = () => {
     const { name, email, password } = data;
     dispatch(userSignUp({ name, email, password }))
       .unwrap()
-      .then(() => router.push("/dictionary"));
+      .then(() => {
+        router.push("/dictionary");
+        toast.success("You sing up");
+      })
+      .catch((error) => toast.error(error));
     reset();
   };
 

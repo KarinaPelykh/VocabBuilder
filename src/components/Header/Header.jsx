@@ -7,8 +7,8 @@ export const Header = () => {
   return (
     <header className="bg-[#fff] ">
       <Container>
-        <div className="flex justify-between items-center">
-          <Logo className="" />
+        <div className="flex justify-between items-center py-[16px] md:py-[24] md:px-[32] xl:py-[20] ">
+          <Logo className="pt-0 px-0" />
           <Nav />
           <User />
         </div>

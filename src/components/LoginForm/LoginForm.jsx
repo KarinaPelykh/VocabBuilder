@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { userIsLoggedIn } from "../../redux/auth/selector";
 import { Icon } from "../Icon";
+import { toast } from "react-toastify";
 
 const schema = yup
   .object({
@@ -48,8 +49,8 @@ export const LoginForm = () => {
     const { email, password } = data;
     dispatch(userSignIn({ email, password }))
       .unwrap()
-      .then(() => router.push("/dictionary"))
-      .catch((error) => console.log(error));
+      .then(() => {router.push("/dictionary"); toast.success("you sing in")} )
+      .catch((error) => toast.error(error));
 
     reset();
   };
@@ -63,7 +64,6 @@ export const LoginForm = () => {
     }
   };
   const isValid = isPasswordLengthValid();
-  console.log(errors);
   return (
     <form
       className="rounded-t-[30px] px-[16px] pt-[32px] pb-[57px] md:mb-[172px] md:mt-[140px] xl:m-0 md:w-[628px] md:h-[518px] md:rounded-[30px] bg-[#85aa9f19] md:px-[64px] md:py-[48px] "
