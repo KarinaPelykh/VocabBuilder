@@ -4,12 +4,16 @@ import { PageSelect, totalPageSelect } from "../../redux/words/selector";
 import clsx from "clsx";
 import ReactPaginate from "react-paginate";
 import { usePathname } from "next/navigation";
+import useSizeWindow from "../../hooks/useSizeWindow";
 
 export const WordsPagination = ({ currentPage, setCurrentPage }) => {
   const totalPage = useSelector(totalPageSelect);
   const PageAmount = useSelector(PageSelect);
   const pathname = usePathname();
   const route = pathname === "/recommend";
+
+  const { size } = useSizeWindow();
+  const pageRange = size <= 767 ? 1 : 3;
 
   const pages = Array.from(
     { length: route ? PageAmount : totalPage },
@@ -54,7 +58,7 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
             previousLabel="<"
             activeClassName="active"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
+            pageRangeDisplayed={pageRange}
             pageCount={pageCount}
             marginPagesDisplayed={1}
             renderOnZeroPageCount={null}

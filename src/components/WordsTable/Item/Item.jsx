@@ -34,7 +34,7 @@ export const Item = ({
 
   return (
     <tr className="relative ">
-      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px]">
+      <td className="   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px]">
         {en}
       </td>
       <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] ">
@@ -42,8 +42,8 @@ export const Item = ({
       </td>
       <td
         className={clsx(
-          " border border-[#DBDBDB]   font-fixelMedium hidden md:text-[18px] md:p-[22px]  md:flex",
-          route && "!flex px-[14px] py-[16px] text-[14px] "
+          " px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium hidden  md:text-[18px] md:p-[22px]  md:flex",
+          route && "!flex  "
         )}
       >
         {category}

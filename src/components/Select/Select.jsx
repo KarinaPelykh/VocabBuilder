@@ -31,7 +31,7 @@ export const Select = ({
         onChange={handleVerb}
         defaultValue={"Verb"}
         className={clsx(
-          " w-[204px] bg-green  border border-[#fff] rounded-[15px] px-[24px] py-[12px] text-[#fff] mb-[8px] outline-none",
+          "w-[100%] md:w-[204px] bg-green  border border-[#fff] rounded-[15px] px-[24px] py-[12px] text-[#fff] mb-[8px] outline-none",
           className && className
         )}
       >
@@ -42,10 +42,13 @@ export const Select = ({
 
       {isVerb && (
         <div className="relative">
-          <div className="flex mb-[38px] ">
+          <div className="flex mb-[32px] md:mb-[38px] ">
             <label
               for="htmlFor"
-              className={clsx("text-[#fff]", className ? "!text-[#000]" : null)}
+              className={clsx(
+                "text-[#fff] mr-[16px]",
+                className ? "!text-[#000]" : null
+              )}
             >
               <input
                 className="bg-green outline-none"
@@ -72,7 +75,7 @@ export const Select = ({
           </div>
 
           {isIrregular && (
-            <p className=" text-[#fff] absolute top-[25px] left-0">
+            <p className=" text-[#fff] absolute top-[25px] left-0 text-[10px] font-fixelRegular leading-[1.2]">
               Such data must be entered in the format I form-II form-III form.
             </p>
           )}

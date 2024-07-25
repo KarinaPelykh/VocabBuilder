@@ -6,12 +6,12 @@ import { IsAuth } from "../../../hoc/IsAuth";
 export default function Recommend() {
   return (
     <IsAuth>
-      <>
+      <main>
         <Container>
           <Dashboard />
           <WordsTable />
         </Container>
-      </>
+      </main>
     </IsAuth>
   );
 }

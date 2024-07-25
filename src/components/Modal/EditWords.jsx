@@ -23,14 +23,14 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
   };
   return (
     <form onSubmit={handelEditWord}>
-      <label className="flex">
+      <label className="flex flex-col-reverse md:flex-row">
         <input
           onChange={(e) => setWordUA(e.target.value)}
           value={wordUA}
-          className=" outline-none text-[#fff] mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
+          className=" outline-none text-[#fff] mb-[16px]  border border-[#fff]  rounded-[15px] px-[24px] py-[12px]   bg-transparent	 placeholder:text-[white]  md:mb-[18px] md:w-[354px] md:px-[18px] md:py-[16px] "
           placeholder="трошки"
         />
-        <p className="flex text-[#fff] items-center justify-center ml-[32px]">
+        <p className="flex items-center justify-start  mb-[8px] text-[#fff] md:mb-0 md:items-center md:justify-center md:ml-[32px]">
           <Icon
             width="32"
             height="32"
@@ -40,14 +40,14 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
           Ukrainian
         </p>
       </label>
-      <label className="flex">
+      <label className="flex flex-col-reverse md:flex-row">
         <input
           onChange={(e) => setWordEN(e.target.value)}
           value={wordEN}
-          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
+          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] px-[24px] py-[12px]   bg-transparent placeholder:text-[white] md:w-[354px] md:px-[18px] md:py-[16px]"
           placeholder="a littel"
         />
-        <p className="flex text-[#fff] items-center justify-center ml-[32px]">
+        <p className="flex justify-start items-center mb-[8px] text-[#fff] md:mb-0 md:items-center md:justify-center md:ml-[32px]">
           <Icon
             width="32"
             height="32"
@@ -62,7 +62,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
         <Button
           type="submit"
           text={"Save"}
-          className="bg-white text-black px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
+          className="bg-white text-black  rounded-[30px] font-bold leading-[1.5] text-[16px] w-[158px] px-[63px] py-[12px] md:px-[101px] md:py-[14px]  md:!ml-[0px] md:w-[245px] md:text-[18px]"
           svg="hidden"
         />
         <Button
@@ -70,7 +70,7 @@ export const EditWords = ({ id, en, ua, category, isIrregular, onClick }) => {
           type="button"
           text={"Cancel"}
           svg="hidden"
-          className="bg-transparent text-white border border-[#fff] px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
+          className="bg-transparent text-white border border-[#fff]  rounded-[30px]  font-bold leading-[1.5] text-[16px] w-[145px]  px-[45px] py-[12px]  md:px-[101px] md:py-[14px] md:!ml-[0px] md:w-[245px] md:text-[18px]"
         />
       </div>
     </form>

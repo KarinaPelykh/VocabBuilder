@@ -4,9 +4,12 @@ import { IsAuth } from "../../../hoc/IsAuth";
 export default function Training() {
   return (
     <IsAuth>
-      <Container>
-        <TrainingRoom />
-      </Container>
+      {" "}
+      <main>
+        <Container>
+          <TrainingRoom />
+        </Container>
+      </main>
     </IsAuth>
   );
 }

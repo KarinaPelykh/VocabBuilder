@@ -32,7 +32,7 @@ export const Modal = ({ children, onClick, isOpen, close, className }) => {
         >
           <div
             className={clsx(
-              "bg-green w-[628px]   absolute rounded-[30px] p-[64px]",
+              "bg-green absolute rounded-[15px]  py-[48px] px-[16px] w-[342px] md:rounded-[30px]  md:w-[628px]    md:p-[64px]",
               className && className
             )}
           >

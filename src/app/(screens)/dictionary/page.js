@@ -5,12 +5,12 @@ import { IsAuth } from "../../../hoc/IsAuth.jsx";
 export default function Dictionary() {
   return (
     <IsAuth>
-      <>
+      <main>
         <Container>
           <Dashboard />
           <WordsTable />
         </Container>
-      </>
+      </main>
     </IsAuth>
   );
 }

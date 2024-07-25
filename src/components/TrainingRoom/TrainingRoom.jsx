@@ -102,7 +102,7 @@ export const TrainingRoom = () => {
       <Modal
         onClick={handelRelocation}
         isOpen={isOpen}
-        className="w-[528px] h-[520px] px-[64px] py-[48px] rounded-[30px]"
+        className="w-[342px] h-[458px] py-[48px] px-[16px] rounded-[15px] md:w-[528px] md:h-[520px] md:px-[64px] md:py-[48px] md:rounded-[30px]"
       >
         <WellDoneModal />
       </Modal>

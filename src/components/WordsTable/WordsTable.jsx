@@ -36,10 +36,10 @@ export const WordsTable = () => {
   return (
     <>
       <div className="flex justify-center md:bg-[#fcfcfc] md:p-[18px] md:mt-[28px] md:rounded-[15px] ">
-        <table className=" md:w-[100%]  md:h-max-[640px]">
+        <table className=" md:w-[100%]  md:h-max-[640px] ">
           <thead>
             <tr className=" bg-[#8bb0a519]  ">
-              <th className="border-r border-[#DBDBDB]  rounded-tl-[15px] font-fixelMedium text-black px-[14px] py-[16px] text-[16px] md:p-[22px] md:text-[20px]  ">
+              <th className="border-r border-[#DBDBDB]  rounded-tl-[15px] font-fixelMedium text-black px-[14px] py-[16px] text-[16px]  md:p-[22px] md:text-[20px]  ">
                 <div className="flex justify-between">
                   <p> Word</p>
                   <Icon
@@ -63,14 +63,14 @@ export const WordsTable = () => {
               </th>
               <th
                 className={clsx(
-                  "hidden    font-fixelMedium text-black  px-[14px] py-[16px] text-[16px] md:p-[22px] md:text-[20px]  md:flex",
-                  route && "!flex"
+                  "hidden   border-r border-[#DBDBDB] font-fixelMedium text-black  px-[14px] py-[16px] text-[16px] md:p-[22px] md:text-[20px]  md:flex",
+                  route && "!flex "
                 )}
               >
                 Category
               </th>
               {route ? null : (
-                <th className="border-r border-[#DBDBDB] font-fixelMedium text-black px-[14px] py-[16px] text-[16px]   md:p-[22px] md:text-[20px]  ">
+                <th className="border-r border-[#DBDBDB] font-fixelMedium text-black px-[14px] py-[16px] text-[16px]  md:p-[22px] md:text-[20px]  ">
                   Progress
                 </th>
               )}

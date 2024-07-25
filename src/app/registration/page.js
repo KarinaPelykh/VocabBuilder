@@ -5,7 +5,7 @@ import { Container } from "../../components/Container/Container.jsx";
 
 export default function Registration() {
   return (
-    <section className="gradient">
+    <main className="gradient">
       <Container>
         <Logo />
         <div className=" md:flex  md:flex-col-reverse xl:flex-row-reverse items-center xl:mt-[64px] xl:mb-[80px]">
@@ -13,6 +13,6 @@ export default function Registration() {
           <RegistrationForm />
         </div>
       </Container>
-    </section>
+    </main>
   );
 }

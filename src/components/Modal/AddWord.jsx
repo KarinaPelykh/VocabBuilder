@@ -38,14 +38,14 @@ export const AddWords = ({ close }) => {
   };
   return (
     <form onSubmit={handleAddWord}>
-      <h1 className="text-white text-[40px] fontWeight-fixelBold leading-[1,02]">
+      <h1 className="text-white font-fixelBold  text-[24px] leading-[1.17] mb-[16px] md:mb-[20px] md:leading-[1.2] md:text-[40px] ">
         Add word
       </h1>
-      <p className=" text-white text-[20px] leading-[1,05] text-[ #fcfcfccc] fontWeight-fixelRegular">
+      <p className="leading-[1.5] text-[#fcfcfc] font-fixelRegular  text-[16px] mb-[16px] md:mb-[32px] md:text-[20px]">
         Adding a new word to the dictionary is an important step in enriching
         the language base and expanding the vocabulary.
       </p>
-      <div className="flex flex-col mt-[32px]">
+      <div className="flex flex-col ">
         <Select
           setCategory={setCategory}
           setIsIrregular={setIsIrregular}
@@ -53,15 +53,15 @@ export const AddWords = ({ close }) => {
         />
       </div>
 
-      <label className="flex">
+      <label className="flex flex-col-reverse md:flex-row">
         <input
           onChange={(e) => setWordUa(e.target.value)}
           value={wordUa}
           // pattern="^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u"
-          className="outline-none  text-[#fff] mb-[18px] w-[354px] border border-[#fff]  rounded-[15px] px-[18px] py-[16px]   bg-transparent	 placeholder:text-[white]"
+          className="outline-none  text-[#fff] mb-[18px] border border-[#fff]  rounded-[15px]  px-[24px] py-[12px]   bg-transparent	 placeholder:text-[white] md:w-[354px] md:px-[18px] md:py-[16px] "
           placeholder="трошки"
         />
-        <p className="flex text-[#fff] items-center justify-center ml-[32px]">
+        <p className=" flex items-center text-[#fff]  justify-start text-[14px]     mb-[8px]  md:mb-0 md:items-center md:justify-center md:ml-[32px]">
           <Icon
             width="32"
             height="32"
@@ -71,15 +71,15 @@ export const AddWords = ({ close }) => {
           Ukrainian
         </p>
       </label>
-      <label className="flex">
+      <label className="flex  flex-col-reverse  md:flex-row mb-[32px]">
         <input
           onChange={(e) => setWordEng(e.target.value)}
           value={wordEng}
           // pattern="\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/"
-          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] w-[354px] bg-transparent px-[18px] py-[16px] placeholder:text-[white] "
+          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] px-[24px] py-[12px]  bg-transparent  placeholder:text-[white] md:w-[354px]  md:px-[18px] md:py-[16px]"
           placeholder="a littel"
         />
-        <p className="flex text-[#fff] items-center justify-center ml-[32px]">
+        <p className="flex items-center text-[#fff] justify-start  text-[14px]  mb-[8px] md:mb-0 md:items-center md:justify-center md:ml-[32px]">
           <Icon
             width="32"
             height="32"
@@ -90,11 +90,11 @@ export const AddWords = ({ close }) => {
         </p>
       </label>
 
-      <div className=" flex justify-between mt-[32px]">
+      <div className="flex justify-between ">
         <Button
           type="submit"
-          text={"Save"}
-          className="bg-white text-black px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
+          text={"Add"}
+          className="bg-white text-black  rounded-[30px] !font-bold leading-[1.5]  text-[16px] px-[63px] py-[12px] w-[159px] h-[48px]    md:px-[101px] md:py-[14px] md:!ml-[0px] md:w-[245px] md:text-[18px]"
           svg="hidden"
         />
         <Button
@@ -102,7 +102,7 @@ export const AddWords = ({ close }) => {
           type="button"
           text={"Cancel"}
           svg="hidden"
-          className="bg-transparent text-white border border-[#fff] px-[101px] py-[14px] rounded-[30px] !ml-[0px] w-[245px] text-[18px] fontWeight-bold leading-[1,56]"
+          className="bg-transparent text-white border border-[#fff] rounded-[30px]   !font-bold leading-[1.5] text-[16px]  px-[45px] py-[12px] w-[145px] h-[48px] md:px-[101px] md:py-[14px] md:w-[245px] md:text-[18px] md:!ml-[0px]"
         />
       </div>
     </form>

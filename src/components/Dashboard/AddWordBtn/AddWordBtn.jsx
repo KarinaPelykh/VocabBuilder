@@ -38,7 +38,7 @@ export const AddWordBtn = () => {
           className={clsx(
             "text-[16px] font-fixelMedium leading-[1,05] text-[#121417]   flex ml-[16px]",
             "text-[16px] font-fixelMedium leading-[1,05] text-[#121417]   flex ml-[16px]",
-            route && "ml-0"
+            route && "!ml-0"
           )}
         >
           Train oneseif
