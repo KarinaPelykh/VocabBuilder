@@ -20,7 +20,8 @@ export const ProgressBar = ({
     <div className={clsx("flex relative", variant && variant)}>
       <p
         className={clsx(
-          !isTraining && "absolute top-[82px] right-[20px] ",
+          !isTraining &&
+            "absolute  right-[25px]   top-[40px] md:top-[82px] md:right-[20px] !flex",
           "hidden md:flex"
         )}
       >

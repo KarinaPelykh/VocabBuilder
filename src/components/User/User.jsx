@@ -5,8 +5,9 @@ import { userSelector } from "../../redux/auth/selector";
 import { LogOut } from "../../redux/auth/operations";
 import { useRouter } from "next/navigation";
 import { Icon } from "../Icon";
+import clsx from "clsx";
 
-export const User = () => {
+export const User = ({ className }) => {
   const route = useRouter();
   const user = useSelector(userSelector);
   const dispatch = useDispatch();
@@ -18,12 +19,27 @@ export const User = () => {
   return (
     <>
       <div className=" flex items-center">
-        <p className="  font-fixelMedium text-black  text-[16px]   mr-[8px] md:mr-[10px] md:text-[20px]">
+        <p
+          className={clsx(
+            "font-fixelMedium text-black  text-[16px]   mr-[8px] md:mr-[10px] md:text-[20px]",
+            className && className
+          )}
+        >
           {user?.name}
         </p>
 
-        <div className="rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center">
-          <Icon width="16" height="16" name="user" />
+        <div
+          className={clsx(
+            "rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center ",
+            className && "bg-white"
+          )}
+        >
+          <Icon
+            width="16"
+            height="16"
+            name="user"
+            className={className ? "fill-transparent" : "#fcfcfc"}
+          />
         </div>
         <Button
           text="Log out"

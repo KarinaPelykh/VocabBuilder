@@ -63,8 +63,8 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
             marginPagesDisplayed={1}
             renderOnZeroPageCount={null}
             pageClassName="page"
-            previousClassName={currentPage === 1 ? "page" : "activeButton"}
-            nextClassName={currentPage >= totalPage ? "page" : "activeButton"}
+            previousClassName={currentPage === 1 ? "page" : "active-button"}
+            nextClassName={currentPage >= totalPage ? "page" : "active-button"}
             breakLinkClassName="page"
             forcePage={currentPage - 1}
           />

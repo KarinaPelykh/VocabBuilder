@@ -16,7 +16,8 @@ export const Button = ({ text, onClick, children, className, svg, type }) => {
         name="icon-switch-horizontal-01-1"
         width="16"
         height="16"
-        className={clsx(" ml-[6px] flex", className, svg)}
+        className={clsx(" ml-[6px] flex", svg && svg)}
+        // className,
       />
 
       {children}
