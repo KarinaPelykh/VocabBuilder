@@ -1,5 +1,4 @@
 export const Error = ({ prop }) => {
-  console.log(prop);
   return (
     <div className="flex">
       {prop && (

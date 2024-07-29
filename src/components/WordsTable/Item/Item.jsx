@@ -19,7 +19,6 @@ export const Item = ({
 }) => {
   const { toggle, close, isOpen } = useToggle();
   const { size } = useSizeWindow();
-
   const dispatch = useDispatch();
 
   const handelAddDictionary = () => {
@@ -33,32 +32,37 @@ export const Item = ({
   };
 
   return (
-    <tr className="relative ">
-      <td className="   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px]">
+    <tr className=" xl:h-[72px]">
+      <td className="   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px] xl:text-[20px]">
         {en}
       </td>
-      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] ">
+      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] xl:text-[20px]">
         {ua}
       </td>
-      <td
-        className={clsx(
-          " px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium hidden  md:text-[18px] md:p-[22px]  md:flex",
-          route && "!flex  "
-        )}
-      >
-        {category}
-      </td>
+      {route || (size >= 767 && !route) ? (
+        <td
+          className={clsx(
+            "px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium   md:text-[18px] md:p-[22px]  xl:text-[20px]"
+          )}
+        >
+          {category}
+        </td>
+      ) : null}
       {route ? null : (
         <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] md:text-[18px]    md:p-[22px]  ">
           <ProgressBar progress={progress} />
         </td>
       )}
-      <td className="px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]  ">
+      <td className="relative px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]">
         <Button
           onClick={route ? handelAddDictionary : toggle}
           text={route ? `${size <= 767 ? "" : "Add to dictionary"}` : "..."}
           svg={route ? "flex stroke-green" : "hidden"}
-          className={clsx("text-[16px] ")}
+          className={clsx(
+            " text-[14px] md:text-[16px] !ml-[0px] ",
+            route && "block xl:w-[208px]",
+            !route && "block xl:w-[135px]"
+          )}
         />
       </td>
       {isOpen && (

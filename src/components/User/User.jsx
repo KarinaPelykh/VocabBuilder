@@ -14,7 +14,7 @@ export const User = ({ className }) => {
   const handelLogOut = () => {
     dispatch(LogOut())
       .unwrap()
-      .then(() => route.push("/registration"));
+      .then(() => route.push("/"));
   };
   return (
     <>
@@ -34,18 +34,13 @@ export const User = ({ className }) => {
             className && "bg-white"
           )}
         >
-          <Icon
-            width="16"
-            height="16"
-            name="user"
-            className={className ? "fill-transparent" : "#fcfcfc"}
-          />
+          <Icon width="16" height="16" name="user" />
         </div>
         <Button
           text="Log out"
           onClick={handelLogOut}
           className="hidden xl:flex"
-          svg="hidden"
+          svg="hidden md:flex stroke-[#000]"
         />
       </div>
     </>

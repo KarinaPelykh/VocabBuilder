@@ -16,7 +16,7 @@ export const Nav = ({ className, list, active }) => {
         {routes.map(({ route, text, id }) => (
           <li
             key={id}
-            className={clsx("mr-[28px] last:mr-0 ", list && "mb-[28px] mr-0")}
+            className={clsx("mr-[28px] last:mr-0 ", list && "mb-[28px] !mr-0")}
           >
             <Link
               className={clsx(

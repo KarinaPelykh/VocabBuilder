@@ -1,26 +1,26 @@
 export const RadioButton = ({ handelIsIrregular, irregular }) => {
   return (
-    <div className="flex items-center ml-[8px] ">
-      <label for="htmlFor" className={"text-[#000] mr-[16px] "}>
+    <ul className="flex items-center ml-[8px] ">
+      <li className={"text-[#000] mr-[16px] flex items-center"}>
         <input
-          className="border-green"
+          className="w-[18px] h-[18px] mr-[8px]"
           type="radio"
           value="Regular"
           checked={irregular === false}
           onChange={handelIsIrregular}
         />
-        Regular
-      </label>
-      <label for="htmlFor" className={"text-[#000]"}>
+        <label for="Regular">Regular</label>
+      </li>
+      <li className={"text-[#000] flex items-center"}>
         <input
-          className="bg-green"
+          className="w-[18px] h-[18px] mr-[8px]"
           type="radio"
           value="Irregular"
           checked={irregular === true}
           onChange={handelIsIrregular}
         />
-        Irregular
-      </label>
-    </div>
+        <label for="Irregular">Irregular</label>
+      </li>
+    </ul>
   );
 };

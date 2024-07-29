@@ -32,7 +32,6 @@ export const LoginForm = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(userIsLoggedIn);
-  console.log(isLoggedIn);
   const handleShow = () => {
     setIsShow(!isShow);
   };
@@ -49,7 +48,10 @@ export const LoginForm = () => {
     const { email, password } = data;
     dispatch(userSignIn({ email, password }))
       .unwrap()
-      .then(() => {router.push("/dictionary"); toast.success("you sing in")} )
+      .then(() => {
+        router.push("/dictionary");
+        toast.success("you sing in");
+      })
       .catch((error) => toast.error(error));
 
     reset();
@@ -141,7 +143,7 @@ export const LoginForm = () => {
       </button>
       <Link
         className="text-gray underline flex justify-center text-[16px] font-bold"
-        href="/registration"
+        href="/"
       >
         Register
       </Link>

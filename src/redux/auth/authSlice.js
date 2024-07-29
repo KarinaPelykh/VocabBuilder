@@ -44,12 +44,11 @@ const authSlice = createSlice({
       .addCase(LogOut.pending, (state) => {
         state.loader = true;
       })
-      // .addCase(RefreshUser.pending, (state) => {
-      //   state.isRefresh = true;
-      // })
+
       .addCase(RefreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+        console.log("state", state.user, state.isLoggedIn);
       });
   },
 });

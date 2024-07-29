@@ -10,7 +10,6 @@ import { Icon } from "../../Icon";
 import clsx from "clsx";
 export const AddWordBtn = () => {
   const { open, close, isOpen } = useToggle();
-  console.log("AddWordBtn", isOpen);
   const pathname = usePathname();
   const route = pathname === "/recommend";
   return (
@@ -46,7 +45,7 @@ export const AddWordBtn = () => {
             name="icon-switch-horizontal-01-1"
             width={20}
             height={20}
-            className="ml-[8px]"
+            className="ml-[8px] stroke-[#85aa9f]"
           />
         </Link>
       </div>

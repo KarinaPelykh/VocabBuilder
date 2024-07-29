@@ -51,6 +51,7 @@ export const RefreshUser = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const persist = getState().auth.token;
+      console.log("persist", persist);
       if (!persist) {
         return;
       }

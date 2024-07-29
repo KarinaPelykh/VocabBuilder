@@ -4,7 +4,6 @@ import { IsAuth } from "../../../hoc/IsAuth";
 export default function Training() {
   return (
     <IsAuth>
-      {" "}
       <main>
         <Container>
           <TrainingRoom />
