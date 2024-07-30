@@ -64,7 +64,7 @@ export const Hero = () => {
   return (
     <div
       className={clsx(
-        "flex flex-col justify-center relative z-10  xl:ml-[80px] ",
+        "flex flex-col justify-center relative z-10  xl:ml-[80px] xl:mt-[39px] ",
         isRegisterPage && "mb-[8px] flex-col"
       )}
     >

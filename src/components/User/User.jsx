@@ -31,10 +31,16 @@ export const User = ({ className }) => {
         <div
           className={clsx(
             "rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center ",
-            className && "bg-white"
+            className && "bg-white1"
           )}
         >
-          <Icon width="16" height="16" name="user" />
+          <Icon
+            name="user"
+            className={clsx(
+              "w-[13px] h-[13px] md:w-[16px] md:h-[16px]",
+              className ? "fill-green" : "fill-[#fcfcfcc2]"
+            )}
+          />
         </div>
         <Button
           text="Log out"

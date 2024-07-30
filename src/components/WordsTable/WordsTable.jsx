@@ -77,7 +77,7 @@ export const WordsTable = () => {
               <th className="w-[50px] rounded-tr-[15px]"></th>
             </tr>
           </thead>
-          <tbody className="bg-[#fcfcf]">
+          <tbody className="  bg-[#fcfcf]">
             {(route ? allWords : word).flatMap(
               ({ en, ua, category, progress, _id, isIrregular }) => {
                 return (

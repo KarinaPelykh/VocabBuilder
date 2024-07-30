@@ -10,7 +10,10 @@ export const ButtonBurgerMenu = ({ className, open, close, isOpen }) => {
           name="icon-Nav"
           width="24px"
           height="24px"
-          className={clsx("stroke-black", className && className)}
+          className={clsx(
+            "stroke-black ml-[8px] md:ml-[28px]",
+            className && className
+          )}
         />
       </Button>
 

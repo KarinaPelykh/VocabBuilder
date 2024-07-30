@@ -39,7 +39,7 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
   return (
     <>
       {pageCount === 0 ? null : (
-        <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px]">
+        <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px] mb-[48px]">
           <button
             onClick={() => {
               handelPreviousPage(1);

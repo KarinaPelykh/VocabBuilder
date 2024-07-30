@@ -13,17 +13,12 @@ export const Header = () => {
     <>
       <header className="bg-[#fff] ">
         <Container>
-          <div className="flex justify-between items-center py-[16px] md:py-[24] md:px-[32] xl:py-[20] ">
-            <Logo className="!p-0" />
+          <div className="flex items-center py-[16px] md:py-[24] md:px-[32] xl:py-[20]  xl:justify-between">
+            <Logo className="!p-0 mr-[auto] xl:mr-0" />
             <Nav />
             <User svg="flex" />
             {size <= 1439 ? (
-              <ButtonBurgerMenu
-                // className=" flex xl:hidden"
-                open={open}
-                close={close}
-                isOpen={isOpen}
-              />
+              <ButtonBurgerMenu open={open} close={close} isOpen={isOpen} />
             ) : null}
           </div>
         </Container>
