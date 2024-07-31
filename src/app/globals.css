@@ -105,6 +105,26 @@ input[type="radio"]:focus + label::before {
   border: none;
   position: relative !important;
 }
+
+.react-select__control {
+  background-color: transparent !important;
+  border: none !important;
+  padding-top: 5px;
+  width: 100% !important;
+  height: 46px;
+  box-shadow: 0 0 0 0 #ffff !important;
+  color: #121417 !important;
+}
+.css-13cymwt-control:hover {
+  border: none;
+}
+
+.react-select__placeholder {
+  /* color: #121417 !important; */
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 150% !important;
+}
 .css-art2ul-ValueContainer2 {
   padding: 0;
 }
@@ -116,7 +136,7 @@ input[type="radio"]:focus + label::before {
   padding: 0 !important;
 }
 .react-select__indicator svg {
-  fill: #121417 !important;
+  /* fill: #121417 !important; */
 }
 
 .css-1xc3v61-indicatorContainer2 {
@@ -126,41 +146,35 @@ input[type="radio"]:focus + label::before {
 .css-1xc3v61-indicatorContainer {
   padding: 0;
 }
-.css-13cymwt-control:hover {
-  border: none;
-}
 
 .css-1nmdiq5-menu {
   padding: 12px 24px;
   border: none;
   border-radius: 15px !important;
   overflow: visible !important;
-  position: absolute !important;
+  position: none !important;
   left: 0px !important;
-  font-size: 15px !important;
-  font-weight: 500px !important;
+}
+@media screen and (min-width: 1439px) {
+  .css-1nmdiq5-menu {
+    max-height: 368px;
+    width: 189px !important;
+    left: -10px !important;
+  }
+}
+
+.react-select__menu-list .react-select__option {
+  padding: 0 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
   line-height: 150% !important;
 }
-@media screen and (width: 1439px) {
-  .css-1nmdiq5-menu {
-    max-width: 368px;
-    width: 189px !important;
-    left: 0px !important;
-  }
-  .css-1nmdiq5-menu option {
-    /* width: 141px !important; */
-  }
-}
-
 .css-d7l1ni-option {
-  padding: 0;
-
   background-color: transparent !important;
   color: #000 !important;
 }
 
 .css-tr4s17-option:active {
-  padding: 0px;
   background-color: transparent !important;
 }
 .css-1dimb5e-singleValue {
@@ -173,14 +187,15 @@ input[type="radio"]:focus + label::before {
 
 .react-select__option--is-selected {
   background-color: #85aa9f !important;
-  padding: 0;
+  border-radius: 5px;
+  padding: px !important;
   color: #fff !important;
 }
 .css-tj5bde-Svg {
   display: inline-block;
-  fill: #121417;
+  /* fill: #121417; */
   line-height: 1;
-  stroke: #121417;
+  /* stroke: #121417; */
   stroke-width: 0;
   width: 20px;
   height: 20px;
@@ -190,14 +205,4 @@ input[type="radio"]:focus + label::before {
   transform: rotate(180deg);
   transition-property: rotate;
   transition-duration: 250ms;
-}
-
-.react-select__control {
-  background-color: transparent !important;
-  border: none !important;
-  padding-top: 5px;
-  width: 100% !important;
-  height: 46px;
-  outline: none !important;
-  box-shadow: none;
 }

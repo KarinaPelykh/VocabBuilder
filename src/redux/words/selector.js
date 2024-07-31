@@ -30,7 +30,9 @@ export const selectFilter = createSelector(
       if (valueFilter !== "") {
         return word.en.toLowerCase().includes(valueFilter.value.toLowerCase());
       } else if (categoriesFilter !== "") {
-        return word.category.includes(categoriesFilter.categories);
+        return word.category
+          .toLowerCase()
+          .includes(categoriesFilter.categories.toLowerCase());
       }
       if (categoriesFilter.irregular !== undefined) {
         matchesIrregularFilter =
@@ -50,7 +52,9 @@ export const selectFilterWords = createSelector(
       if (valueFilter !== "") {
         return word.en.toLowerCase().includes(valueFilter.value.toLowerCase());
       } else if (categoriesFilter !== "") {
-        return word.category.includes(categoriesFilter.categories);
+        return word.category
+          .toLowerCase()
+          .includes(categoriesFilter.categories.toLowerCase());
       }
       if (categoriesFilter.irregular !== undefined) {
         matchesIrregularFilter =

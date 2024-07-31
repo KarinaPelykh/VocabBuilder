@@ -32,7 +32,7 @@ export const Item = ({
   };
 
   return (
-    <tr className=" xl:h-[72px]">
+    <tr className=" xl:h-[72px]  ">
       <td className="   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px] xl:text-[20px]">
         {en}
       </td>
@@ -49,11 +49,14 @@ export const Item = ({
         </td>
       ) : null}
       {route ? null : (
-        <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] md:text-[18px]    md:p-[22px]  ">
-          <ProgressBar progress={progress} />
+        <td className="  px-[14px] py-[16px] text-[14px] border    border-[#DBDBDB] md:text-[18px]     md:p-[22px]  ">
+          <ProgressBar
+            progress={progress}
+            className=" justify-center  md:justify-start"
+          />
         </td>
       )}
-      <td className="relative px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]">
+      <td className="relative  px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]">
         <Button
           onClick={route ? handelAddDictionary : toggle}
           text={route ? `${size <= 767 ? "" : "Add to dictionary"}` : "..."}

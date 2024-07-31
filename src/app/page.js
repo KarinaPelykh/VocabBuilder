@@ -8,7 +8,7 @@ export default function Registration() {
     <main className="gradient">
       <Container>
         <Logo />
-        <div className=" md:flex  md:flex-col-reverse xl:flex-row-reverse items-center ">
+        <div className="md:flex  md:flex-col-reverse xl:flex-row-reverse items-center xl:justify-between xl:pt-[64px] xl:pb-[80px] ">
           <Hero />
           <RegistrationForm />
         </div>

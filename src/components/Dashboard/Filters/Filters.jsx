@@ -61,11 +61,11 @@ export const Filters = () => {
     <div className="mb-[38px]  md:flex  md:mb-[28px] xl:mr-[auto]">
       <FormSearch handleChangeINput={handleChangeINput} />
       <Select
-        defaultValue={"Categories"}
+        placeholder="Categories"
         onChange={handleVerb}
         options={options}
         classNamePrefix="react-select"
-        className=" px-[24px] outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%]  md:w-[164px] "
+        className=" px-[24px] outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%]  md:w-[164px]  "
       />
 
       {isVerb ? (
@@ -77,15 +77,3 @@ export const Filters = () => {
     </div>
   );
 };
-
-{
-  /* <select
-        onChange={handleVerb}
-        className="py-[12px] px-[24px] outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%]  md:w-[164px] "
-      >
-        <option>Categiries</option>
-        {categories.map((item, index) => (
-          <option key={index}>{item}</option>
-        ))}
-      </select> */
-}

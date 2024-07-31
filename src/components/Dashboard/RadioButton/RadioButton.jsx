@@ -1,6 +1,13 @@
-export const RadioButton = ({ handelIsIrregular, irregular }) => {
+import clsx from "clsx";
+
+export const RadioButton = ({ handelIsIrregular, irregular, className }) => {
   return (
-    <ul className="flex items-center ml-[8px] ">
+    <ul
+      className={clsx(
+        "flex items-center ml-[8px]  ",
+        className && "mb-[32px] md:mb-[38px]"
+      )}
+    >
       <li className={"text-[#000] mr-[16px] flex items-center"}>
         <input
           className="w-[18px] h-[18px] mr-[8px]"
@@ -9,7 +16,9 @@ export const RadioButton = ({ handelIsIrregular, irregular }) => {
           checked={irregular === false}
           onChange={handelIsIrregular}
         />
-        <label for="Regular">Regular</label>
+        <label for="Regular" className={clsx("text-black", className)}>
+          Regular
+        </label>
       </li>
       <li className={"text-[#000] flex items-center"}>
         <input
@@ -19,7 +28,9 @@ export const RadioButton = ({ handelIsIrregular, irregular }) => {
           checked={irregular === true}
           onChange={handelIsIrregular}
         />
-        <label for="Irregular">Irregular</label>
+        <label for="Irregular" className={clsx("text-black", className)}>
+          Irregular
+        </label>
       </li>
     </ul>
   );

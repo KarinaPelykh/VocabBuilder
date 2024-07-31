@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addWord } from "../../redux/words/operations";
 import { toast } from "react-toastify";
-import { Select } from "../Select/Select";
+import { Selects } from "../Select/Select";
 export const AddWords = ({ close }) => {
   const [wordEng, setWordEng] = useState("");
   const [wordUa, setWordUa] = useState("");
@@ -46,7 +46,7 @@ export const AddWords = ({ close }) => {
         the language base and expanding the vocabulary.
       </p>
       <div className="flex flex-col ">
-        <Select
+        <Selects
           setCategory={setCategory}
           setIsIrregular={setIsIrregular}
           isIrregular={isIrregular}

@@ -46,14 +46,14 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
             }}
             className={clsx(
               currentPage !== 1 ? "text-green" : "text-[#000]",
-              "rounded-[8px]  text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
+              "rounded-[8px]  text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center text-[13px]"
             )}
           >
             {"<<"}
           </button>
           <ReactPaginate
             breakLabel="..."
-            className="flex items-center justify-center"
+            className="flex items-center justify-center text-[13px]"
             nextLabel=">"
             previousLabel="<"
             activeClassName="active"
@@ -74,7 +74,7 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
             }}
             className={clsx(
               totalPage !== currentPage ? "text-green" : "text-[#000]",
-              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center"
+              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center text-[13px]"
             )}
           >
             {">>"}

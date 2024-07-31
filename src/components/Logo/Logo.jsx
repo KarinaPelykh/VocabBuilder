@@ -7,7 +7,7 @@ export const Logo = ({ className }) => {
     <Link
       href="/dictionary"
       className={clsx(
-        "flex items-center text-black font-fixelBold text-[18px] leading-[1.3] pt-[16px]  md:px-0  md:pt-[24px]  md:text-[22px] md:leading-[1.45]",
+        "flex items-center text-black font-fixelBold text-[18px] leading-[1.3] pt-[16px]  pl-[16px] sm:pl-[0px]  md:px-0  md:pt-[24px]  md:text-[22px] md:leading-[1.45]",
         className && className
       )}
     >

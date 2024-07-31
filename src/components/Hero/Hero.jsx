@@ -8,7 +8,7 @@ import children_mob2x from "../../images/img-2@/children_mob@2x.png";
 import children_mobWebp from "../../images/Img-webp/children_mob.webp";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-export const Hero = () => {
+export const Hero = ({ className }) => {
   const route = usePathname();
   const isRegisterPage = route === "/registration";
 
@@ -64,8 +64,9 @@ export const Hero = () => {
   return (
     <div
       className={clsx(
-        "flex flex-col justify-center relative z-10  xl:ml-[80px] xl:mt-[39px] ",
-        isRegisterPage && "mb-[8px] flex-col"
+        "flex flex-col justify-center relative z-10  xl:mt-[39px] ",
+        isRegisterPage && "mb-[8px] flex-col",
+        className && className
       )}
     >
       <picture
