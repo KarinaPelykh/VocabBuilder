@@ -84,7 +84,7 @@ export const TrainingRoom = () => {
             doneTasks={doneTasks}
             generalAmountTasks={generalAmountTasks}
             className="w-[58px] h-[58px]  mt-[24px] md:mt-[62px]"
-            variant="flex justify-end"
+            variant=" justify-end"
           />
           <FormForTranslate
             trainTasks={trainTasks}

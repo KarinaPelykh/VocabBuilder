@@ -36,6 +36,7 @@ export const AddWords = ({ close }) => {
         console.log(error);
       });
   };
+
   return (
     <form onSubmit={handleAddWord}>
       <h1 className="text-white font-fixelBold  text-[24px] leading-[1.17] mb-[16px] md:mb-[20px] md:leading-[1.2] md:text-[40px] ">
@@ -50,6 +51,7 @@ export const AddWords = ({ close }) => {
           setCategory={setCategory}
           setIsIrregular={setIsIrregular}
           isIrregular={isIrregular}
+          className="react-select-modal"
         />
       </div>
 

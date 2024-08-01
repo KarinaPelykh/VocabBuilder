@@ -17,7 +17,7 @@ export const Item = ({
   isIrregular,
   route,
 }) => {
-  const { toggle, close, isOpen } = useToggle();
+  const { toggle, close, isOpen, open } = useToggle();
   const { size } = useSizeWindow();
   const dispatch = useDispatch();
 
@@ -52,13 +52,13 @@ export const Item = ({
         <td className="  px-[14px] py-[16px] text-[14px] border    border-[#DBDBDB] md:text-[18px]     md:p-[22px]  ">
           <ProgressBar
             progress={progress}
-            className=" justify-center  md:justify-start"
+            className=" justify-center  md:justify-start "
           />
         </td>
       )}
-      <td className="relative  px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]">
+      <td className=" relative px-[14px] py-[16px] text-[14px]  font-fixelMedium   border border-[#DBDBDB] border-r-0 md:text-[18px] md:p-[22px]">
         <Button
-          onClick={route ? handelAddDictionary : toggle}
+          onClick={route ? handelAddDictionary : open}
           text={route ? `${size <= 767 ? "" : "Add to dictionary"}` : "..."}
           svg={route ? "flex stroke-green" : "hidden"}
           className={clsx(
@@ -67,17 +67,17 @@ export const Item = ({
             !route && "block xl:w-[135px]"
           )}
         />
+        {isOpen && (
+          <ActionButton
+            id={_id}
+            en={en}
+            ua={ua}
+            isIrregular={isIrregular}
+            category={category}
+            closeModals={close}
+          />
+        )}
       </td>
-      {isOpen && (
-        <ActionButton
-          id={_id}
-          en={en}
-          ua={ua}
-          isIrregular={isIrregular}
-          category={category}
-          closeModals={close}
-        />
-      )}
     </tr>
   );
 };

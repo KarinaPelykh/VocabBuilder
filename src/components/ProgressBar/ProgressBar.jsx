@@ -20,8 +20,8 @@ export const ProgressBar = ({
     <div
       className={clsx(
         "flex relative",
-        variant && variant,
-        className && className
+        variant && variant
+        // className && className
       )}
     >
       <p
@@ -35,7 +35,7 @@ export const ProgressBar = ({
       </p>
       <Circle
         className={clsx(
-          "w-[26px] h-[26px] md:ml-[16px] ",
+          "w-[26px] h-[26px] md:ml-[16px]",
           className && className
         )}
         strokeWidth={isTraining ? 15 : 8}

@@ -41,7 +41,10 @@ export const Selects = ({
         onChange={handleVerb}
         options={options}
         classNamePrefix="react-select"
-        className=" px-[24px]  outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%] mb-[8px]  md:w-[204px]  "
+        className={clsx(
+          " px-[24px]  outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%] mb-[8px]  md:w-[204px]  ",
+          className && className
+        )}
       />
 
       {isVerb && (

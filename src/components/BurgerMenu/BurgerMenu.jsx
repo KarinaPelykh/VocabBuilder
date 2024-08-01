@@ -15,7 +15,7 @@ export const BurgerMenu = ({ isOpen, close }) => {
   const handelLogOut = () => {
     dispatch(LogOut())
       .unwrap()
-      .then(() => route.push("/registration"));
+      .then(() => route.push("/"));
   };
 
   const handelCloseMenu = (e) => {
