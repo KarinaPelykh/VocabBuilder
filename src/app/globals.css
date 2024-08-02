@@ -171,4 +171,10 @@ input {
       left: 10px !important;
     }
   }
+  .react-select__single-value {
+    color: #f8f8f8 !important;
+  }
+}
+#specifyColor {
+  accent-color: rgb(116, 151, 116);
 }

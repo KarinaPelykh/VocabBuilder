@@ -12,6 +12,5 @@ export const Refresh = ({ children }) => {
 
   const refreshUser = useSelector(refreshSelector);
 
-  console.log("refreshUser", refreshUser);
   return refreshUser ? <Loading /> : <>{children}</>;
 };

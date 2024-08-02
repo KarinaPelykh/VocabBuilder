@@ -10,6 +10,7 @@ export const RadioButton = ({ handelIsIrregular, irregular, className }) => {
     >
       <li className={"text-[#000] mr-[16px] flex items-center"}>
         <input
+          id="specifyColor"
           className="w-[18px] h-[18px] mr-[8px]"
           type="radio"
           value="Regular"
@@ -22,6 +23,7 @@ export const RadioButton = ({ handelIsIrregular, irregular, className }) => {
       </li>
       <li className={"text-[#000] flex items-center"}>
         <input
+          id="specifyColor"
           className="w-[18px] h-[18px] mr-[8px]"
           type="radio"
           value="Irregular"

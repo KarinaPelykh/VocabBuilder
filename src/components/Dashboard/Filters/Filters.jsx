@@ -48,7 +48,6 @@ export const Filters = () => {
   const handelIsIrregular = (e) => {
     setIrregular(e.target.value === "Irregular");
   };
-
   const options = [];
   for (const option of categories) {
     const bigLetter = option[0].toUpperCase();

@@ -6,7 +6,7 @@ import ReactPaginate from "react-paginate";
 import { usePathname } from "next/navigation";
 import useSizeWindow from "../../hooks/useSizeWindow";
 
-export const WordsPagination = ({ currentPage, setCurrentPage }) => {
+export const WordsPagination = ({ currentPage, setCurrentPage  }) => {
   const totalPage = useSelector(totalPageSelect);
   const PageAmount = useSelector(PageSelect);
   const pathname = usePathname();
@@ -38,7 +38,7 @@ export const WordsPagination = ({ currentPage, setCurrentPage }) => {
   };
   return (
     <>
-      {pageCount === 0 ? null : (
+      {pageCount === 0   ? null : (
         <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px] mb-[48px]">
           <button
             onClick={() => {

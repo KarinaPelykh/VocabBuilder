@@ -1,5 +1,6 @@
 import { Icon } from "../Icon";
 import { Button } from "../Button/Button";
+import clsx from "clsx";
 export const FormForTranslate = ({
   trainTasks,
   word,
@@ -9,19 +10,36 @@ export const FormForTranslate = ({
   handelSaveAnswer,
   handelNextWord,
 }) => {
+  const defaultTasks = [
+    {
+      en: "Goodbye",
+      ua: "До побачення",
+      _id: "2",
+      task: "en",
+    },
+  ];
+
+  const defaultOrTrainTasks = trainTasks.length > 0 ? trainTasks : defaultTasks;
+
   return (
     <form className="" onSubmit={handelSaveAnswer}>
       <div className="mb-[116px] mt-[8px] md:mt-[16px] md:mb-[40px] md:bg-[#fff] md:w-[100%]   md:p-[18px]  md:rounded-[15px] xl:h-[338px]   xl:mb-[80px]">
-        {trainTasks &&
-          trainTasks.map(({ en, ua, _id, task }) => (
+        {defaultOrTrainTasks &&
+          defaultOrTrainTasks.map(({ en, ua, _id, task }) => (
             <div key={_id} className="h-[100%] xl:flex ">
-              <div className="w-[100%] h-[195px] p-[22px] bg-[#FCFCFC] border-[#DBDBDB] border-b     rounded-tl-[15px] rounded-tr-[15px]  md:relative  md:h-[282px] xl:border-b-0  xl:border-r   xl:rounded-tl-[15px] xl:rounded-bl-[15px] xl:rounded-tr-[0px]  ">
+              <div className="w-[100%] h-[195px] p-[22px] bg-[#FCFCFC] border-[#DBDBDB] border-b     rounded-tl-[15px] rounded-tr-[15px]  md:relative  md:h-[282px] xl:border-b-0  xl:border-r   xl:rounded-tl-[15px] xl:rounded-bl-[15px] xl:rounded-tr-[0px] xl:h-[100%] ">
                 <div className="flex justify-between flex-col md:flex-row  ">
                   <input
-                    className="outline-none w-[100%] placeholder:text-[16px] placeholder:text-black placeholder:font-fixelMedium  md:placeholder:text-[20px] md:placeholder:leading-[1.5]"
+                    className={clsx(
+                      "outline-none w-[100%] placeholder:text-[16px] font-fixelMedium text-[16px] xl:text-[20px] placeholder:text-black placeholder:font-fixelMedium  md:placeholder:text-[20px] md:placeholder:leading-[1.5]",
+                      learnedWords.length === tasks.length
+                        ? "placeholder:text-[#858383]"
+                        : null
+                    )}
                     value={word}
                     onChange={handelGetWord}
                     placeholder="Введіть переклад"
+                    disabled={learnedWords.length === tasks.length}
                   />
                   <div className="flex   mt-[104px]  flex-row-reverse  md:block md:mt-0">
                     <div className="flex items-center">
@@ -52,7 +70,7 @@ export const FormForTranslate = ({
                   </div>
                 </div>
               </div>
-              <div className="bg-[#FCFCFC]  w-[100%]  h-[195px]  p-[22px] rounded-br-[15px] rounded-bl-[15px] md:h-[282px] md:rounded-tr-[15px] md:rounded-br-[15px]  ">
+              <div className="bg-[#FCFCFC]  w-[100%]  h-[195px]  p-[22px] rounded-br-[15px] rounded-bl-[15px] md:h-[282px] md:rounded-tr-[15px] md:rounded-br-[15px]  xl:h-[100%]  ">
                 <div className="flex justify-between flex-col  md:flex-row ">
                   <p className="text-[16px] font-fixelMedium leading-[1.5] md:text-[20px]">
                     {task === "en" ? ua : en}

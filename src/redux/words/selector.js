@@ -29,7 +29,8 @@ export const selectFilter = createSelector(
       let matchesIrregularFilter = true;
       if (valueFilter !== "") {
         return word.en.toLowerCase().includes(valueFilter.value.toLowerCase());
-      } else if (categoriesFilter !== "") {
+      }
+      if (categoriesFilter !== "") {
         return word.category
           .toLowerCase()
           .includes(categoriesFilter.categories.toLowerCase());
@@ -38,7 +39,7 @@ export const selectFilter = createSelector(
         matchesIrregularFilter =
           word.isIrregular === categoriesFilter.irregular;
       }
-
+      console.log(matchesIrregularFilter);
       return matchesIrregularFilter;
     });
   }

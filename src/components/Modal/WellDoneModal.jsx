@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { TasksSelect } from "../../redux/words/selector";
 import Image from "next/image";
-import book from "../../images/book.png";
+
+import bookX2 from "../../images/img-2@/book_desk@2x.png";
 export const WellDoneModal = () => {
   const doneTask = useSelector(TasksSelect);
   return (
@@ -41,8 +42,9 @@ export const WellDoneModal = () => {
           })}
         </div>
       </div>
+
       <Image
-        src={book}
+        src={bookX2}
         alt="book"
         width={212}
         height={179}

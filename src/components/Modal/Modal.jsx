@@ -23,6 +23,7 @@ export const Modal = ({ children, onClick, isOpen, close, className }) => {
       document.body.style.overflow = "auto";
     }
   };
+
   return (
     <>
       {isOpen && (

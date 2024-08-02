@@ -3,7 +3,9 @@ import { Button } from "../Button/Button";
 import { Icon } from "../Icon";
 import { User } from "../User/User";
 import { Nav } from "../Nav/Nav";
-import children from "../../images/img-2@/children_burger_menu@2x.png";
+
+import childrenX2 from "../../images/img-2@/children_burger_menu@2x.png";
+
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { LogOut } from "../../redux/auth/operations";
@@ -28,7 +30,6 @@ export const BurgerMenu = ({ isOpen, close }) => {
   } else {
     document.body.style.overflow = "auto";
   }
-  console.log(isOpen);
   return (
     <div
       onClick={handelCloseMenu}
@@ -60,9 +61,8 @@ export const BurgerMenu = ({ isOpen, close }) => {
           className="flex text-[#fff]"
           svg="stroke-[#fff]"
         />
-
         <Image
-          src={children}
+          src={childrenX2}
           alt="children"
           className="absolute bottom-0 right-0"
         />

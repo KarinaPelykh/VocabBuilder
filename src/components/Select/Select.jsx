@@ -15,7 +15,7 @@ export const Selects = ({
 }) => {
   const categories = useSelector(categoriesSelector);
 
-  const [isVerb, setIsVerb] = useState(true);
+  const [isVerb, setIsVerb] = useState(false);
 
   const handleVerb = (e) => {
     const option = e.value.toLowerCase();
@@ -26,6 +26,8 @@ export const Selects = ({
   const handelIsIrregular = (e) => {
     setIsIrregular(e.target.value === "Irregular");
   };
+
+  console.log(isIrregular);
   const options = [];
   for (const option of categories) {
     const bigLetter = option[0].toUpperCase();
@@ -65,50 +67,3 @@ export const Selects = ({
     </>
   );
 };
-{
-  /* <select
-        onChange={handleVerb}
-        defaultValue={"Verb"}
-        className={clsx(
-          "w-[100%] md:w-[204px] bg-green  border border-[#fff] rounded-[15px] px-[24px] py-[12px] text-[#fff] mb-[8px] outline-none",
-          className && className
-        )}
-      >
-        {categories.map((item, index) => (
-          <option key={index}>{item}</option>
-        ))}
-      </select> */
-}
-{
-  /* <div className="flex mb-[32px] md:mb-[38px] ">
-            <label
-              for="htmlFor"
-              className={clsx(
-                "text-[#fff] mr-[16px]",
-                className ? "!text-[#000]" : null
-              )}
-            >
-              <input
-                className="bg-green outline-none"
-                type="radio"
-                value="Regular"
-                checked={isIrregular === false}
-                onChange={handleIsIrregular}
-              />
-              Regular
-            </label>
-            <label
-              for="htmlFor"
-              className={clsx("text-[#fff]", className ? "!text-[#000]" : null)}
-            >
-              <input
-                className="bg-green outline-none"
-                type="radio"
-                value="Irregular"
-                checked={isIrregular === true}
-                onChange={handleIsIrregular}
-              />
-              Irregular
-            </label>
-          </div>   */
-}

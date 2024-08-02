@@ -111,9 +111,10 @@ export const RegistrationForm = () => {
             {...register("password")}
             className={clsx(
               "relative w-[100%] h-[56px] py-[16px] px-[18px] border-[1px] border-[#12141719] border-solid rounded-m text-black placeholder:text-black placeholder:text-[16px] outline-none bg-[#85aa9f19]",
-              errors.password?.message
-                ? "border-[#ff0000]"
-                : isValid && "border-[#00ff00]"
+             
+              !errors.password?.message && isValid
+                ? "!border-[#00ff00]"
+                : !isValid && password !== "" && "border-[#ff0000]"
             )}
             name="password"
             type={isShow ? "text" : "password"}
@@ -143,12 +144,16 @@ export const RegistrationForm = () => {
             )}
           </button>
         </label>
+        
         <div>
-          {errors.password?.message ? (
-            <Error prop={errors.password?.message} />
-          ) : isValid ? (
+          {!errors.password?.message && isValid ? (
             <Success />
-          ) : null}
+          ) : (
+            !isValid &&
+            password !== "" && (
+              <Error prop={errors.password ? errors.password?.message : true} />
+            )
+          )}
         </div>
       </div>
 

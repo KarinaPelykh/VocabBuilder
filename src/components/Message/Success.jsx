@@ -1,7 +1,9 @@
+import { Icon } from "../Icon";
+
 export const Success = () => {
   return (
     <div className="flex">
-      <svg
+      {/* <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -19,7 +21,8 @@ export const Success = () => {
             <rect width="16" height="16" fill="white" />
           </clipPath>
         </defs>
-      </svg>
+      </svg> */}
+      <Icon name="checkbox-succsus" width="16" height="16" />
       <p className=" ml-[4px] text-[12px] leading-[1,05] font-fixelRegular text-[#00ff00]">
         Success password
       </p>

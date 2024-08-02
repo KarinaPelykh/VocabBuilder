@@ -17,7 +17,7 @@ export const Item = ({
   isIrregular,
   route,
 }) => {
-  const { toggle, close, isOpen, open } = useToggle();
+  const { close, isOpen, open } = useToggle();
   const { size } = useSizeWindow();
   const dispatch = useDispatch();
 
@@ -33,16 +33,16 @@ export const Item = ({
 
   return (
     <tr className=" xl:h-[72px]  ">
-      <td className="   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px] xl:text-[20px]">
+      <td className="break-all   px-[14px] py-[16px] text-[14px] border border-[#DBDBDB] border-l-0  font-fixelMedium md:text-[18px] md:p-[22px] xl:text-[20px]">
         {en}
       </td>
-      <td className="px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] xl:text-[20px]">
+      <td className="break-all  px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium  md:text-[18px]   md:p-[22px] xl:text-[20px]">
         {ua}
       </td>
       {route || (size >= 767 && !route) ? (
         <td
           className={clsx(
-            "px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium   md:text-[18px] md:p-[22px]  xl:text-[20px]"
+            "break-all px-[14px] py-[16px] text-[14px] border border-[#DBDBDB]  font-fixelMedium   md:text-[18px] md:p-[22px]  xl:text-[20px]"
           )}
         >
           {category}

@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { Button } from "../Button/Button";
-import file from "../../images/img-1@/file_desk@1x.png";
-import { Container } from "../Container/Container";
+
+import fileX2 from "../../images/img-2@/file_desk@2x.png";
 export const Grating = ({ onClick }) => {
   return (
     <section className="flex  mt-[75px]  md:mt-[140px] xl:mt-[193px]">
       <div className="mx-[auto]  md:py-[17px] md:px-[24px] md:w-[902px]  xl:flex md:justify-between xl:items-center xl:flex-row-reverse">
         <Image
-          src={file}
+          src={fileX2}
           alt="file"
           className="w-[144px] h-[166px] mx-[auto] md:w-[205px] md:h-[230px]"
         />
+
         <div className="md:w-[581px] md:h-[254px] ">
           <h1 className=" text-black text-[16px] leading-[1.5] font-fixelMedium mb-[16px] md:text-[20px] md:mb-[32px]">
             You don&#39;t have a single word to learn right now.{" "}
