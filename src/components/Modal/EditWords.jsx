@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "../Button/Button";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { useDispatch } from "react-redux";
 import { EditWord } from "../../redux/words/operations";
 import { toast } from "react-toastify";

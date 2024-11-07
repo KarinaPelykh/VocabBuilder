@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "../Button/Button";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addWord } from "../../redux/words/operations";

@@ -11,7 +11,7 @@ import { WordsPagination } from "../WordsPagination/WordsPagination";
 import { selectFilter, selectFilterWords } from "../../redux/words/selector";
 import { Item } from "./Item/Item";
 import { usePathname } from "next/navigation";
-import { Invitation } from "../UI/Invitation";
+import { Invitation } from "../UI0/Invitation";
 export const WordsTable = () => {
   const [limit] = useState(7);
   const [currentPage, setCurrentPage] = useState(1);

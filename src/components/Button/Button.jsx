@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 
 export const Button = ({ text, onClick, children, className, svg, type }) => {
   return (

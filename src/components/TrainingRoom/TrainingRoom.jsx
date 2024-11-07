@@ -7,7 +7,7 @@ import useToggle from "../../hooks/useToggle";
 import { TasksSelect } from "../../redux/words/selector";
 import { AddMadeTasks, AllTasks } from "../../redux/words/operations";
 
-import { Grating } from "../../components/UI/Grating";
+import { Grating } from "../UI0/Grating";
 import { WellDoneModal } from "../Modal/WellDoneModal";
 import { Modal } from "../Modal/Modal";
 import { ProgressBar } from "../ProgressBar/ProgressBar";

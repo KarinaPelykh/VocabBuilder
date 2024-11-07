@@ -1,6 +1,6 @@
 import { usePathname } from "next/navigation";
 import useSizeWindow from "../../../hooks/useSizeWindow";
-import { Icon } from "../../Icon";
+import { Icon } from "../../ui/Icon";
 
 export const Table = ({ children }) => {
   const { size } = useSizeWindow();

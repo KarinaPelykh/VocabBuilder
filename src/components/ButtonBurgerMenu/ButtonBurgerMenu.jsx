@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Button } from "../Button/Button";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 export const ButtonBurgerMenu = ({ className, open, close, isOpen }) => {
   return (

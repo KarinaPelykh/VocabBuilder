@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "../../Icon";
+import { Icon } from "../../ui/Icon";
 
 export const FormSearch = ({ handleChangeINput }) => {
   return (

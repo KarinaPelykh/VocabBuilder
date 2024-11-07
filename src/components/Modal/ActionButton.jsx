@@ -1,6 +1,6 @@
 "use client";
 import useToggle from "../../hooks/useToggle";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { Modal } from "./Modal";
 import { EditWords } from "../Modal/EditWords";
 import { useDispatch } from "react-redux";

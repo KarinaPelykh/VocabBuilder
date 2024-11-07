@@ -6,7 +6,7 @@ import useToggle from "../../../hooks/useToggle";
 import { AddWords } from "../../Modal/AddWord";
 import { Modal } from "../../Modal/Modal";
 import { usePathname } from "next/navigation";
-import { Icon } from "../../Icon";
+import { Icon } from "../../ui/Icon";
 import clsx from "clsx";
 export const AddWordBtn = () => {
   const { open, close, isOpen } = useToggle();

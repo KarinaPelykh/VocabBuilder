@@ -1,52 +1,33 @@
 "use client";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import Link from "next/link";
 import { useState } from "react";
-import { Error } from "../Message/Error";
-import { Success } from "../Message/Success";
+import { Error, Success } from "../Message";
 import clsx from "clsx";
 import { userSignIn } from "../../redux/auth/operations";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-import { userIsLoggedIn } from "../../redux/auth/selector";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { toast } from "react-toastify";
+import { useValidateLogin } from "./useValidateLogin";
+import { Button, ReusableLink } from "@/components/ui";
 
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "you have mistake try again")
-      .required(),
-    password: yup
-      .string()
-      .matches(/^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/, "Error password")
-      .required(),
-  })
-  .required();
 export const LoginForm = () => {
   const [isShow, setIsShow] = useState(false);
+
   const [password, setPassword] = useState("");
+
   const router = useRouter();
+
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(userIsLoggedIn);
-  const handleShow = () => {
-    setIsShow(!isShow);
-  };
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  } = useValidateLogin();
+
   const onSubmit = (data) => {
-    const { email, password } = data;
-    dispatch(userSignIn({ email, password }))
+    dispatch(userSignIn(data))
       .unwrap()
       .then(() => {
         router.push("/dictionary");
@@ -59,13 +40,11 @@ export const LoginForm = () => {
 
   const isPasswordLengthValid = () => {
     const pattern = /^(?=.*[a-zA-Z]{6})(?=.*\d)[a-zA-Z\d]{7}$/;
-    if (pattern.test(password) && password !== "") {
-      return true;
-    } else {
-      return false;
-    }
+
+    return pattern.test(password) ? true : false;
   };
   const isValid = isPasswordLengthValid();
+
   return (
     <form
       className="rounded-t-[30px] px-[16px] pt-[32px] pb-[57px] md:mb-[172px] md:mt-[140px] xl:m-0 md:w-[628px] md:h-[518px] md:rounded-[30px] bg-[#85aa9f19] md:px-[64px] md:py-[48px] "
@@ -77,7 +56,7 @@ export const LoginForm = () => {
       <p className="font-fixelRegular text-[#121417cc]  leading-[1,05] text-[16px ] mb-[40px]   md:text-[20px]    md:mb-[32px]">
         Please enter your login details to continue using our service:
       </p>
-      <div className="flex flex-col mb-[32px]">
+      <div className="flex flex-col mb-8">
         <label className="relative">
           <input
             {...register("email")}
@@ -105,22 +84,13 @@ export const LoginForm = () => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="button" onClick={handleShow}>
-            {!isShow ? (
-              <Icon
-                width="20"
-                height="20"
-                name={"icon-eye-off"}
-                className="fill-[#85aa9f19] stroke-black absolute bottom-[15px] right-[18px]"
-              />
-            ) : (
-              <Icon
-                width="20"
-                height="20"
-                name={"icon-eye"}
-                className="fill-[#85aa9f19] stroke-black absolute bottom-[15px] right-[18px]"
-              />
-            )}
+          <button type="button" onClick={() => setIsShow(!isShow)}>
+            <Icon
+              width="20"
+              height="20"
+              name={!isShow ? "icon-eye-off" : "icon-eye"}
+              className="fill-[#85aa9f19] stroke-black absolute bottom-[15px] right-[18px]"
+            />
           </button>
         </label>
         <div>
@@ -135,18 +105,18 @@ export const LoginForm = () => {
         </div>
       </div>
 
-      <button
+      <Button
         className="w-[100%] text-white py-[16px] rounded-x bg-green mb-[16px] text-[18px] font-bold"
         type="submit"
       >
         Login
-      </button>
-      <Link
+      </Button>
+      <ReusableLink
         className="text-gray underline flex justify-center text-[16px] font-bold"
         href="/"
       >
         Register
-      </Link>
+      </ReusableLink>
     </form>
   );
 };

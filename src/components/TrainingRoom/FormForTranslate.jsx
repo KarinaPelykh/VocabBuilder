@@ -1,4 +1,4 @@
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { Button } from "../Button/Button";
 import clsx from "clsx";
 export const FormForTranslate = ({

@@ -1,6 +1,6 @@
 "use client";
 import { Container } from "../Container/Container";
-import { Logo } from "../Logo/Logo";
+import { Logo } from "@/components/ui";
 import { Nav } from "../Nav/Nav";
 import { User } from "../User/User";
 import { ButtonBurgerMenu } from "../ButtonBurgerMenu/ButtonBurgerMenu";

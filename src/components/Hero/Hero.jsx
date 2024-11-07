@@ -1,24 +1,26 @@
 "use client";
+
 import Image from "next/image";
 
-import childrenDesk from "../../images/children_desk.png";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+
 export const Hero = ({ className }) => {
   const route = usePathname();
+
   const isRegisterPage = route === "/registration";
 
   return (
     <div
       className={clsx(
-        "flex flex-col justify-center relative z-10  xl:mt-[39px] ",
-        isRegisterPage && "mb-[8px] flex-col",
+        "flex flex-col justify-center relative z-10  xl:mt-10 ",
+        isRegisterPage && "mb-2 flex-col",
         className && className
       )}
     >
       <Image
-        className="md:hidden xl:flex xl:w-[498px] xl:h-[435px] xl:mb-[16px]"
-        src={childrenDesk}
+        className="md:hidden xl:flex xl:w-[498px] xl:h-[435px] xl:mb-4"
+        src="/hero/children_desk.png"
         alt="children"
         width={498}
         height={435}

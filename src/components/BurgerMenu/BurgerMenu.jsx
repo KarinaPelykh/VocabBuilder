@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "../Button/Button";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import { User } from "../User/User";
 import { Nav } from "../Nav/Nav";
 

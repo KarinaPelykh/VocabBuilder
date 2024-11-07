@@ -4,7 +4,7 @@ import { Button } from "../Button/Button";
 import { userSelector } from "../../redux/auth/selector";
 import { LogOut } from "../../redux/auth/operations";
 import { useRouter } from "next/navigation";
-import { Icon } from "../Icon";
+import { Icon } from "../ui/Icon";
 import clsx from "clsx";
 
 export const User = ({ className }) => {
