@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 export const useValidateLogin = () => {
-  const schema = yup
+  const schemaLogin = yup
     .object({
       email: yup
         .string()
@@ -25,7 +25,7 @@ export const useValidateLogin = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaLogin),
   });
 
   return {

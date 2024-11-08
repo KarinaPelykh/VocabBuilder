@@ -2,7 +2,7 @@
 import { Button } from "../Button/Button";
 import { Icon } from "../ui/Icon";
 import { User } from "../User/User";
-import { Nav } from "../Nav/Nav";
+import { Nav } from "../Header/Nav";
 
 import childrenX2 from "../../images/img-2@/children_burger_menu@2x.png";
 
@@ -13,7 +13,9 @@ import { useRouter } from "next/navigation";
 import clsx from "clsx";
 export const BurgerMenu = ({ isOpen, close }) => {
   const dispatch = useDispatch();
+
   const route = useRouter();
+
   const handelLogOut = () => {
     dispatch(LogOut())
       .unwrap()
@@ -25,11 +27,13 @@ export const BurgerMenu = ({ isOpen, close }) => {
       close();
     }
   };
+
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
+
   return (
     <div
       onClick={handelCloseMenu}
@@ -51,7 +55,7 @@ export const BurgerMenu = ({ isOpen, close }) => {
           </button>
         </div>
         <Nav
-          className="!flex "
+          className="!flex"
           list="flex-wrap text-[#fff] !justify-start"
           active="text-[#000] bg-white py-[12px] px-[20px] rounded-m"
         />

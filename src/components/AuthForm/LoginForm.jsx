@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Error, Success } from "../Message";
+import { Error, Success } from "./Message";
 import clsx from "clsx";
 import { userSignIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-import { Icon } from "../ui/Icon";
 import { toast } from "react-toastify";
-import { useValidateLogin } from "./useValidateLogin";
+import { useValidateLogin } from "./hook";
 import { Button, ReusableLink } from "@/components/ui";
+import { HideButton } from "./HideButton";
+import { LabelInput } from "./LableInput";
 
 export const LoginForm = () => {
   const [isShow, setIsShow] = useState(false);
@@ -57,42 +58,30 @@ export const LoginForm = () => {
         Please enter your login details to continue using our service:
       </p>
       <div className="flex flex-col mb-8">
-        <label className="relative">
-          <input
-            {...register("email")}
-            className="w-[100%] h-[56px] py-[16px] px-[18px] border-[1px] border-[#12141719] border-solid rounded-m text-black mb-[15px] placeholder:text-black placeholder:text-[16px] outline-none bg-[#85aa9f19]"
-            name="email"
-            type="email"
-            placeholder="Email"
-          />
-          <p className="] text-[12px] leading-[1,05] font-fixelRegular absolute top-[55px] ">
-            {errors.email?.message}
-          </p>
-        </label>
+        <LabelInput
+          register={{ ...register("email") }}
+          name="email"
+          type="email"
+          placeholder="Email"
+          errors={errors}
+        />
 
-        <label className="relative">
-          <input
-            {...register("password")}
-            className={clsx(
-              "relative w-[100%] h-[56px] py-[16px] px-[18px] border-[1px] border-[#12141719] border-solid rounded-m text-black placeholder:text-black placeholder:text-[16px] outline-none bg-[#85aa9f19]",
-              !errors.password?.message && isValid
-                ? "!border-[#00ff00]"
-                : !isValid && password !== "" && "border-[#ff0000]"
-            )}
-            name="password"
-            type={isShow ? "text" : "password"}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="button" onClick={() => setIsShow(!isShow)}>
-            <Icon
-              width="20"
-              height="20"
-              name={!isShow ? "icon-eye-off" : "icon-eye"}
-              className="fill-[#85aa9f19] stroke-black absolute bottom-[15px] right-[18px]"
-            />
-          </button>
-        </label>
+        <LabelInput
+          register={{ ...register("password") }}
+          name="password"
+          type={isShow ? "text" : "password"}
+          placeholder="Password"
+          errors={errors}
+          onChange={(e) => setPassword(e.target.value)}
+          className={clsx(
+            " mb-0",
+            !errors.password?.message && isValid
+              ? "!border-[#00ff00]"
+              : !isValid && password !== "" && "border-[#ff0000]"
+          )}
+        >
+          <HideButton isShow={isShow} onClick={() => setIsShow(!isShow)} />
+        </LabelInput>
         <div>
           {!errors.password?.message && isValid ? (
             <Success />

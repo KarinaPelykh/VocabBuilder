@@ -4,8 +4,10 @@ import { IsAuth } from "../../../hoc/IsAuth.jsx";
 export default function Dictionary() {
   return (
     <IsAuth>
-      <Dashboard />
-      <WordsTable />
+      <div className="container">
+        <Dashboard />
+        <WordsTable />
+      </div>
     </IsAuth>
   );
 }

@@ -6,6 +6,12 @@ body {
   background-color: #f8f8f8;
 }
 
+@layer components {
+  .container {
+    @apply mx-[auto] sm:w-[343px]  md:h-[auto]  md:w-[704px]   xl:w-[1280px] xl:px-[20px];
+  }
+}
+
 @media screen and (min-width: 768px) {
   .gradient {
     background-image: url(../images/background.png);

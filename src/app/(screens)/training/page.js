@@ -3,7 +3,9 @@ import { IsAuth } from "../../../hoc/IsAuth";
 export default function Training() {
   return (
     <IsAuth>
-      <TrainingRoom />
+      <div className="container">
+        <TrainingRoom />
+      </div>
     </IsAuth>
   );
 }

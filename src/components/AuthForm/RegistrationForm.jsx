@@ -1,19 +1,18 @@
 "use client";
 
-import { useValidationCredentials } from "./useValidationCredentials";
+import { useValidationCredentials } from "./hook";
 
 import { Button, ReusableLink } from "@/components/ui";
-import { HideButton } from "./HideButton";
 import { LabelInput } from "./LableInput";
 import { useState } from "react";
-import { Error, Success } from "../Message";
+import { Error, Success } from "./Message";
 import { useDispatch } from "react-redux";
-
 import { useRouter } from "next/navigation";
 
 import { userSignUp } from "../../redux/auth/operations";
 import { toast } from "react-toastify";
 import clsx from "clsx";
+import { HideButton } from "./HideButton";
 
 export const RegistrationForm = () => {
   const [isShow, setIsShow] = useState(false);

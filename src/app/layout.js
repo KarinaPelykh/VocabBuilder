@@ -5,7 +5,6 @@ import { ReduxProvider } from "../redux/provider.jsx";
 import { Refresh } from "./Refresh";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { Container } from "@/components/Container/Container";
 
 export const metadata = {
   title: "VocabBuilder",
@@ -14,12 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html className={MacPawFixelDisplay.className} lang="en">
-      <body className="">
+      <body>
         <ReduxProvider>
           <Refresh>
-            <main>
-              <Container>{children}</Container>
-            </main>
+            <main>{children}</main>
           </Refresh>
         </ReduxProvider>
         <ToastContainer autoClose={1000} />

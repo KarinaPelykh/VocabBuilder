@@ -17,7 +17,7 @@ export const LabelInput = (data) => {
       <input
         {...register}
         className={clsx(
-          "w-[100%] h-[56px] py-[16px] px-[18px] border-[1px] border-[#12141719] border-solid rounded-m text-black mb-[15px] placeholder:text-black placeholder:text-[16px] outline-none bg-[#85aa9f19]",
+          "w-full h-[56px] py-4 px-[18px] border border-[#12141719] border-solid rounded-m text-black mb-[15px] placeholder:text-black placeholder:text-[16px] outline-none bg-[#85aa9f19]",
           className
         )}
         name={name}
