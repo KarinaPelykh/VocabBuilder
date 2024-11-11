@@ -1,16 +1,14 @@
 "use client";
-import { Button } from "../Button/Button";
-import { Icon } from "../ui/Icon";
+import { Button, Icon } from "@/components/ui";
 import { User } from "../User/User";
 import { Nav } from "../Header/Nav";
-
-import childrenX2 from "../../images/img-2@/children_burger_menu@2x.png";
 
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { LogOut } from "../../redux/auth/operations";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
+
 export const BurgerMenu = ({ isOpen, close }) => {
   const dispatch = useDispatch();
 
@@ -30,45 +28,56 @@ export const BurgerMenu = ({ isOpen, close }) => {
 
   if (isOpen) {
     document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
   }
+  document.body.style.overflow = "auto";
 
   return (
     <div
       onClick={handelCloseMenu}
       className={clsx(
-        "w-[100%] h-[100%] fixed top-0 left-0 flex justify-end z-10  ",
-        isOpen ? "translate-x-[0%]" : "translate-x-[100%] transition-all"
+        "size-full fixed top-0 left-0 flex justify-end z-10  ",
+        isOpen ? "translate-x-0" : "translate-x-full transition-all"
       )}
     >
-      <div className="p-[16px] w-[185px] h-screen relative bg-green">
+      <div className="p-4 w-[185px]  h-screen relative bg-green">
         <div className=" flex justify-between mb-[100px]">
-          <User className="flex !text-[#fff]" />
-          <button onClick={close}>
+          <User className="flex !text-white" />
+          <Button onClick={close}>
             <Icon
               name="close"
               width="24px"
               height="24px"
-              className="fill-[#fff] stroke-white "
+              className="fill-white stroke-white "
             />
-          </button>
+          </Button>
         </div>
         <Nav
           className="!flex"
-          list="flex-wrap text-[#fff] !justify-start"
-          active="text-[#000] bg-white py-[12px] px-[20px] rounded-m"
+          list="flex-wrap text-white !justify-start"
+          active="text-black bg-white py-3 px-5 rounded-m"
         />
+
         <Button
-          text="Log out"
+          type="button"
           onClick={handelLogOut}
-          className="flex text-[#fff]"
-          svg="stroke-[#fff]"
-        />
+          className="flex text-white"
+        >
+          Log out
+          <Icon
+            name="icon-switch-horizontal-01-1"
+            width="16"
+            height="16"
+            className="ml-[6px] flex stroke-white"
+          />
+        </Button>
+
         <Image
-          src={childrenX2}
+          src={"/hero/children_burger_menu@2x.png"}
           alt="children"
-          className="absolute bottom-0 right-0"
+          width={300}
+          height={435}
+          objectFit="contain"
+          className="absolute bottom-0 right-0 "
         />
       </div>
     </div>

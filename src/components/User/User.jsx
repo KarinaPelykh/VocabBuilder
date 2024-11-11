@@ -1,10 +1,9 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../Button/Button";
 import { userSelector } from "../../redux/auth/selector";
 import { LogOut } from "../../redux/auth/operations";
 import { useRouter } from "next/navigation";
-import { Icon } from "@/components/ui";
+import { Icon, Button } from "@/components/ui";
 import clsx from "clsx";
 
 export const User = ({ className }) => {
@@ -21,10 +20,10 @@ export const User = ({ className }) => {
   };
 
   return (
-    <div className=" flex items-center">
+    <div className="flex items-center">
       <p
         className={clsx(
-          "font-fixelMedium text-black  text-[16px]   mr-[8px] md:mr-[10px] md:text-[20px]",
+          "font-fixelMedium text-black  text-[16px]   mr-2 md:mr-[10px] md:text-[20px]",
           className && className
         )}
       >
@@ -33,24 +32,25 @@ export const User = ({ className }) => {
 
       <div
         className={clsx(
-          "rounded-radii bg-green w-[36px] h-[36px] md:w-[48px] md:h-[48px] flex justify-center items-center ",
+          "rounded-radii bg-green w-9 h-9 md:w-12 md:h-12 flex justify-center items-center md:mr-4",
           className && "bg-white1"
         )}
       >
         <Icon
           name="user"
           className={clsx(
-            "w-[13px] h-[13px] md:w-[16px] md:h-[16px]",
+            "w-[13px] h-[13px] md:w-4 md:h-4",
             className ? "fill-green" : "fill-[#fcfcfcc2]"
           )}
         />
       </div>
-      <Button
-        text="Log out"
-        onClick={handelLogOut}
-        className="hidden xl:flex"
-        svg="hidden md:flex stroke-[#000]"
-      />
+      <Button type={"button"} onClick={handelLogOut} className="hidden xl:flex">
+        Log out
+        <Icon
+          name={"icon-switch-horizontal-01-1"}
+          className="hidden md:flex stroke-black"
+        />
+      </Button>
     </div>
   );
 };

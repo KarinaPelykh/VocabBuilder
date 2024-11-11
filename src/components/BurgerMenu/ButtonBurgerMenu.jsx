@@ -16,7 +16,7 @@ export const ButtonBurgerMenu = ({ className }) => {
           width="24px"
           height="24px"
           className={clsx(
-            "stroke-black ml-[8px] md:ml-[28px] xl:hidden",
+            "stroke-black ml-2 md:ml-7 xl:hidden",
             className && className
           )}
         />

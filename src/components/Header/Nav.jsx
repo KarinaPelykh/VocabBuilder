@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { ItemLink } from "./ItemLink";
 
 export const Nav = ({ className, list, active }) => {
   const routes = [
@@ -9,27 +9,17 @@ export const Nav = ({ className, list, active }) => {
     { route: "/recommend", text: "Recommend", id: 2 },
     { route: "/training", text: "Training", id: 3 },
   ];
-  const pathname = usePathname();
   return (
     <nav className={clsx("hidden xl:flex", className && className)}>
       <ul className={clsx("flex justify-center ", list && list)}>
         {routes.map(({ route, text, id }) => (
-          <li
+          <ItemLink
             key={id}
-            className={clsx("mr-[28px] last:mr-0 ", list && "mb-[28px] !mr-0")}
-          >
-            <Link
-              className={clsx(
-                pathname === route &&
-                  (active
-                    ? active
-                    : "bg-green py-[12px] px-[20px] rounded-m text-[#fff]")
-              )}
-              href={route}
-            >
-              {text}
-            </Link>
-          </li>
+            list={list}
+            active={active}
+            href={route}
+            text={text}
+          />
         ))}
       </ul>
     </nav>

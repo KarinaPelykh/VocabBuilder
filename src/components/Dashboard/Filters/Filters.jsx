@@ -57,22 +57,22 @@ export const Filters = () => {
     options.push(item);
   }
   return (
-    <div className="mb-[38px]  md:flex  md:mb-[28px] xl:mr-[auto]">
+    <div className="mb-[38px]  md:flex  md:mb-8 xl:mr-auto">
       <FormSearch handleChangeINput={handleChangeINput} />
       <Select
         placeholder="Categories"
         onChange={handleVerb}
         options={options}
         classNamePrefix="react-select"
-        className=" px-[24px] outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%]  md:w-[164px]  "
+        className=" px-6 outline-none bg-transparent h-12 border border-[#dbdbdb] rounded-3 w-full  md:w-[164px]  "
       />
 
-      {isVerb ? (
+      {isVerb && (
         <RadioButton
           handelIsIrregular={handelIsIrregular}
           irregular={irregular}
         />
-      ) : null}
+      )}
     </div>
   );
 };
