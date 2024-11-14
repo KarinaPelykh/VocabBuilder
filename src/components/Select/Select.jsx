@@ -27,7 +27,6 @@ export const Selects = ({
     setIsIrregular(e.target.value === "Irregular");
   };
 
-  console.log(isIrregular);
   const options = [];
   for (const option of categories) {
     const bigLetter = option[0].toUpperCase();
@@ -44,7 +43,7 @@ export const Selects = ({
         options={options}
         classNamePrefix="react-select"
         className={clsx(
-          " px-[24px]  outline-none bg-[transparent] h-[48px] border border-[#dbdbdb] rounded-[12px] w-[100%] mb-[8px]  md:w-[204px]  ",
+          " px-6 outline-none bg-transparent h-12 border border-gray1 rounded-s w-full mb-2  md:w-[204px]  ",
           className && className
         )}
       />
@@ -52,13 +51,13 @@ export const Selects = ({
       {isVerb && (
         <div className="relative">
           <RadioButton
-            className="!text-[#fff] "
+            className="!text-white "
             handelIsIrregular={handelIsIrregular}
             irregular={isIrregular}
           />
 
           {isIrregular && (
-            <p className=" text-[#fff] absolute top-[25px] left-0 text-[10px] font-fixelRegular leading-[1.2]">
+            <p className=" text-white absolute top-[25px] left-0 text-[10px] font-fixelRegular leading-[1.2]">
               Such data must be entered in the format I form-II form-III form.
             </p>
           )}

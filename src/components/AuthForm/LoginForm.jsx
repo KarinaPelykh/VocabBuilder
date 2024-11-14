@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Error, Success } from "./Message";
+import { Notification } from "./Message";
 import clsx from "clsx";
 import { userSignIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
@@ -84,11 +84,18 @@ export const LoginForm = () => {
         </LabelInput>
         <div>
           {!errors.password?.message && isValid ? (
-            <Success />
+            <Notification
+              name="checkbox-success"
+              colorText="text-green-light"
+            />
           ) : (
             !isValid &&
             password !== "" && (
-              <Error prop={errors.password ? errors.password?.message : true} />
+              <Notification
+                name="error-warning"
+                colorText="text-red"
+                prop={errors.password ? errors.password?.message : true}
+              />
             )
           )}
         </div>

@@ -1,6 +1,6 @@
 "use client";
 import useToggle from "../../hooks/useToggle";
-import { Icon } from "../ui/Icon";
+import { Button, Icon } from "@/components/ui";
 import { Modal } from "./Modal";
 import { EditWords } from "../Modal/EditWords";
 import { useDispatch } from "react-redux";
@@ -16,9 +16,11 @@ export const ActionButton = ({
   closeModals,
 }) => {
   const dispatch = useDispatch();
+
   const { open, close, isOpen } = useToggle();
+
   const modalRef = useRef(null);
-  console.log("modalRef", modalRef.current);
+
   const handelDelete = () => {
     dispatch(DeleteWord({ id }))
       .unwrap()
@@ -26,6 +28,7 @@ export const ActionButton = ({
         toast.success("You delete word");
       });
   };
+
   const handelClose = (e) => {
     if (modalRef.current && modalRef.current.contains(e.target)) {
       return;
@@ -33,31 +36,30 @@ export const ActionButton = ({
 
     closeModals();
   };
+
   useEffect(() => {
     document.addEventListener("mousedown", handelClose);
     return () => {
       document.removeEventListener("mousedown", handelClose);
     };
   }, []);
+
   return (
     <>
       <div
         ref={modalRef}
-        className="  bg-[#fff] py-[12px] px-[24px]  rounded-[15px] w-[124px] h-[80px] shadow-boxShadowS   absolute top-[60%] right-0    xl:top-[60%] xl:right-[65px] z-10"
+        className="  bg-white py-3 px-6 rounded-m w-[124px] h-[80px] shadow-boxShadowS   absolute top-[60%] right-0    xl:top-[60%] xl:right-[65px] z-10"
       >
-        <button
-          className="flex justify-start items-center mb-[8px]"
-          onClick={open}
-        >
+        <Button className="flex justify-start items-center mb-2" onClick={open}>
           <Icon
             width="16"
             height="16"
             name="icon-edit-2"
-            className="fill-[#fff] stroke-[#85aa9f] stroke-[2px] mr-[8px]"
+            className="fill-white stroke-green stroke-2 mr-2"
           />
           Edit
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
           className="flex justify-start items-center"
           onClick={handelDelete}
@@ -66,10 +68,10 @@ export const ActionButton = ({
             width="16"
             height="16"
             name="icon-trash-2-1"
-            className="stroke-[#85aa9f] fill-white mr-[8px]"
+            className="stroke-green fill-white mr-2"
           />
           Delete
-        </button>
+        </Button>
       </div>
       <Modal onClick={close} isOpen={isOpen}>
         <EditWords

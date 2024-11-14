@@ -14,11 +14,17 @@ import { usePathname } from "next/navigation";
 import { Invitation } from "../ui";
 export const WordsTable = () => {
   const [limit] = useState(7);
+
   const [currentPage, setCurrentPage] = useState(1);
+
   const pathname = usePathname();
+
   const route = pathname === "/recommend";
+
   const word = useSelector(selectFilter);
+
   const allWords = useSelector(selectFilterWords);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,9 +38,10 @@ export const WordsTable = () => {
   useEffect(() => {
     dispatch(getWordsAll({ page: currentPage, limit }));
   }, [dispatch, currentPage, limit]);
+
   return (
     <>
-      {!route && word.length <= 0 ? (
+      {!route && !word.length ? (
         <Invitation />
       ) : (
         <Table>

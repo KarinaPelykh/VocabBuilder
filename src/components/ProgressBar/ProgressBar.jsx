@@ -15,13 +15,15 @@ export const ProgressBar = ({
   );
 
   const rout = usePathname();
+
   const isTraining = rout !== "/training";
+
   return (
     <div className={clsx("flex relative", variant && variant)}>
       <p
         className={clsx(
           !isTraining &&
-            "absolute  right-[25px]   top-[40px] md:top-[82px] md:right-[20px] !flex",
+            "absolute  right-[25px]   top-10 md:top-[82px] md:right-5 !flex",
           "hidden md:flex"
         )}
       >

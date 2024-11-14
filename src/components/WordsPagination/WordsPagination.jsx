@@ -6,13 +6,17 @@ import ReactPaginate from "react-paginate";
 import { usePathname } from "next/navigation";
 import useSizeWindow from "../../hooks/useSizeWindow";
 
-export const WordsPagination = ({ currentPage, setCurrentPage  }) => {
+export const WordsPagination = ({ currentPage, setCurrentPage }) => {
   const totalPage = useSelector(totalPageSelect);
+
   const PageAmount = useSelector(PageSelect);
+
   const pathname = usePathname();
+
   const route = pathname === "/recommend";
 
   const { size } = useSizeWindow();
+
   const pageRange = size <= 767 ? 1 : 3;
 
   const pages = Array.from(
@@ -38,15 +42,15 @@ export const WordsPagination = ({ currentPage, setCurrentPage  }) => {
   };
   return (
     <>
-      {pageCount === 0   ? null : (
-        <div className=" flex justify-center mx-[auto] mt-[28px]  h-[32px] mb-[48px]">
+      {pageCount === 0 ? null : (
+        <div className=" flex justify-center mx-auto mt-7  h-8 mb-12">
           <button
             onClick={() => {
               handelPreviousPage(1);
             }}
             className={clsx(
-              currentPage !== 1 ? "text-green" : "text-[#000]",
-              "rounded-[8px]  text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center text-[13px]"
+              currentPage !== 1 ? "text-green" : "text-black",
+              "rounded-xs  text-black border border-gray1 w-8 h-8 flex justify-center items-center text-[13px]"
             )}
           >
             {"<<"}
@@ -73,8 +77,8 @@ export const WordsPagination = ({ currentPage, setCurrentPage  }) => {
               handelNextPage(pages.length);
             }}
             className={clsx(
-              totalPage !== currentPage ? "text-green" : "text-[#000]",
-              "rounded-[8px] ml-[10px] text-[#000] border border-[#dbdbdb] w-[32px] h-[32px] flex justify-center items-center text-[13px]"
+              totalPage !== currentPage ? "text-green" : "text-black",
+              "rounded-xs ml-[10px] text-black border border-gray1 w-8 h-8 flex justify-center items-center text-[13px]"
             )}
           >
             {">>"}

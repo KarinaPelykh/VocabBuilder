@@ -7,7 +7,7 @@ export const FormSearch = ({ handleChangeINput }) => {
     <div className=" flex mb-2 md:mb-0  md:mr-2">
       <form className=" w-full relative  md:mr-4 ">
         <input
-          className=" w-full outline-none border border-[#DBDBDB] py-3 px-6 bg-transparent rounded-3  placeholder:text-black placeholder:font-fixelMedium md:w-[274px]"
+          className="w-full outline-none border border-gray1 py-3 px-6 bg-transparent rounded-m  placeholder:text-black placeholder:font-fixelMedium md:w-[274px]"
           type="text"
           name="text"
           placeholder="Find the word"

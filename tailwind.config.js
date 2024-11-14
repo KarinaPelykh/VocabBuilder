@@ -14,11 +14,16 @@ module.exports = {
     },
     colors: {
       black: "#121417",
+      black1: "#12141733",
       green: "#85aa9f",
+      "green-light": "#00ff00",
       white: "#fcfcfc",
+      "white-light": "#fcfcfc",
       white1: "#f8f8f8",
       gray: "#12141780",
+      gray1: "#DBDBDB",
       text1: "#121417cc",
+      red: "#ff0000",
     },
 
     fontWeight: {
@@ -33,6 +38,8 @@ module.exports = {
       radii: "100%",
       x: "30px",
       m: "15px",
+      s: "12px",
+      xs: "8px",
     },
     boxShadow: {
       boxShadowS: "0 4px 47px 0 rgba(18, 20, 23, 0.08)",

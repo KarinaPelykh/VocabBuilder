@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { categoriesSelector } from "../../../redux/words/selector";
 import { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
-import { FormSearch } from "../FormSearch/FormSearch";
+import { FormSearch } from "./FormSearch";
 import {
   addFilter,
   addFilterCategories,
@@ -13,10 +13,15 @@ import { RadioButton } from "../RadioButton/RadioButton";
 import Select from "react-select";
 export const Filters = () => {
   const [word, setWord] = useState("");
+
   const [shearCategories, setShearCategories] = useState("");
+
   const [isVerb, setIsVerb] = useState(false);
+
   const [irregular, setIrregular] = useState(null);
+
   const categories = useSelector(categoriesSelector);
+
   const dispatch = useDispatch();
 
   const debounced = useDebouncedCallback((word) => {
@@ -31,10 +36,11 @@ export const Filters = () => {
 
   useEffect(() => {
     dispatch(addFilterCategories({ shearCategories, irregular }));
-    if (shearCategories !== "" && irregular !== null) {
+    if (shearCategories && irregular !== null) {
       dispatch(GetOwnWords({ shearCategories, irregular }));
     }
     dispatch(GetOwnWords({ shearCategories }));
+
     dispatch(GetOwnWords({ word }));
   }, [dispatch, word, shearCategories, irregular]);
 
@@ -49,6 +55,7 @@ export const Filters = () => {
     setIrregular(e.target.value === "Irregular");
   };
   const options = [];
+
   for (const option of categories) {
     const bigLetter = option[0].toUpperCase();
     const remainderWord = option.slice(1, option.length);
@@ -64,7 +71,7 @@ export const Filters = () => {
         onChange={handleVerb}
         options={options}
         classNamePrefix="react-select"
-        className=" px-6 outline-none bg-transparent h-12 border border-[#dbdbdb] rounded-3 w-full  md:w-[164px]  "
+        className="px-6 outline-none bg-transparent h-12 border border-gray1 rounded-m w-full  md:w-[164px]"
       />
 
       {isVerb && (

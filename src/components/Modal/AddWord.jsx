@@ -1,15 +1,19 @@
 "use client";
-import { Button } from "../Button/Button";
-import { Icon } from "../ui/Icon";
+// import { Button } from "../Button/Button";
+import { Icon, Button } from "@/components/ui";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addWord } from "../../redux/words/operations";
 import { toast } from "react-toastify";
 import { Selects } from "../Select/Select";
+
 export const AddWords = ({ close }) => {
   const [wordEng, setWordEng] = useState("");
+
   const [wordUa, setWordUa] = useState("");
+
   const [category, setCategory] = useState("verb");
+
   const [isIrregular, setIsIrregular] = useState(null);
 
   const dispatch = useDispatch();
@@ -39,10 +43,10 @@ export const AddWords = ({ close }) => {
 
   return (
     <form onSubmit={handleAddWord}>
-      <h1 className="text-white font-fixelBold  text-[24px] leading-[1.17] mb-[16px] md:mb-[20px] md:leading-[1.2] md:text-[40px] ">
+      <h1 className="text-white font-fixelBold  text-[24px] leading-[1.17] mb-4 md:mb-5 md:leading-[1.2] md:text-[40px] ">
         Add word
       </h1>
-      <p className="leading-[1.5] text-[#fcfcfc] font-fixelRegular  text-[16px] mb-[16px] md:mb-[32px] md:text-[20px]">
+      <p className="leading-[1.5] text-white-light font-fixelRegular  text-[16px] mb-4 md:mb-8 md:text-[20px]">
         Adding a new word to the dictionary is an important step in enriching
         the language base and expanding the vocabulary.
       </p>
@@ -59,34 +63,27 @@ export const AddWords = ({ close }) => {
         <input
           onChange={(e) => setWordUa(e.target.value)}
           value={wordUa}
-          // pattern="^(?![A-Za-z])[А-ЯІЄЇҐґа-яієїʼ\s]+$/u"
-          className="outline-none  text-[#fff] mb-[18px] border border-[#fff]  rounded-[15px]  px-[24px] py-[12px]   bg-transparent	 placeholder:text-[white] md:w-[354px] md:px-[18px] md:py-[16px] "
+          className="outline-none  text-white mb-[18px] border border-white  rounded-m  px-6 py-3   bg-transparent	 placeholder:text-white md:w-[354px] md:px-[18px] md:py-4 "
           placeholder="трошки"
         />
-        <p className=" flex items-center text-[#fff]  justify-start text-[14px]     mb-[8px]  md:mb-0 md:items-center md:justify-center md:ml-[32px]">
-          <Icon
-            width="32"
-            height="32"
-            name="icon-ukraine"
-            className="mr-[8px]"
-          />
+        <p className=" flex items-center text-white  justify-start text-[14px]  mb-2  md:mb-0 md:items-center md:justify-center md:ml-8">
+          <Icon width="32" height="32" name="icon-ukraine" className="mr-2" />
           Ukrainian
         </p>
       </label>
-      <label className="flex  flex-col-reverse  md:flex-row mb-[32px]">
+      <label className="flex  flex-col-reverse  md:flex-row mb-8">
         <input
           onChange={(e) => setWordEng(e.target.value)}
           value={wordEng}
-          // pattern="\b[A-Za-z'-]+(?:\s+[A-Za-z'-]+)*\b/"
-          className="outline-none text-[#fff] border border-[#fff] rounded-[15px] px-[24px] py-[12px]  bg-transparent  placeholder:text-[white] md:w-[354px]  md:px-[18px] md:py-[16px]"
+          className="outline-none text-white border border-white rounded-m px-6 py-3  bg-transparent  placeholder:text-white md:w-[354px]  md:px-[18px] md:py-4"
           placeholder="a littel"
         />
-        <p className="flex items-center text-[#fff] justify-start  text-[14px]  mb-[8px] md:mb-0 md:items-center md:justify-center md:ml-[32px]">
+        <p className="flex items-center text-white  justify-start  text-[14px]  mb-2 md:mb-0 md:items-center md:justify-center md:ml-8">
           <Icon
             width="32"
             height="32"
             name="icon-united-kingdom"
-            className="mr-[8px]"
+            className="mr-4"
           />
           English
         </p>
@@ -95,17 +92,17 @@ export const AddWords = ({ close }) => {
       <div className="flex justify-between ">
         <Button
           type="submit"
-          text={"Add"}
-          className="bg-white text-black  rounded-[30px] !font-bold leading-[1.5]  text-[16px] px-[63px] py-[12px] w-[159px] h-[48px]    md:px-[101px] md:py-[14px] md:!ml-[0px] md:w-[245px] md:text-[18px]"
-          svg="hidden"
-        />
+          className="bg-white text-black  rounded-x !font-bold leading-[1.5]  text-[16px] px-[63px] py-3 w-[159px] h-12    md:px-[101px] md:py-[14px] md:!ml-0 md:w-[245px] md:text-[18px]"
+        >
+          Add
+        </Button>
         <Button
           onClick={close}
           type="button"
-          text={"Cancel"}
-          svg="hidden"
-          className="bg-transparent text-white border border-[#fff] rounded-[30px]   !font-bold leading-[1.5] text-[16px]  px-[45px] py-[12px] w-[145px] h-[48px] md:px-[101px] md:py-[14px] md:w-[245px] md:text-[18px] md:!ml-[0px]"
-        />
+          className="bg-transparent text-white border border-white rounded-x !font-bold leading-[1.5] text-[16px]  px-[45px] py-3 w-[145px] h-12 md:px-[101px] md:py-[14px] md:w-[245px] md:text-[18px] md:!ml-0"
+        >
+          Cancel
+        </Button>
       </div>
     </form>
   );

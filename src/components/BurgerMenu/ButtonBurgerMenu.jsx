@@ -1,7 +1,6 @@
 "use client";
 import clsx from "clsx";
-import { Button } from "../Button/Button";
-import { Icon } from "../ui/Icon";
+import { Icon, Button } from "@/components/ui";
 import { BurgerMenu } from "./BurgerMenu";
 import useToggle from "../../hooks/useToggle";
 

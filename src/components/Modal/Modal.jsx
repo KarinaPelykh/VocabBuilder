@@ -2,8 +2,9 @@
 
 import clsx from "clsx";
 import { useEffect } from "react";
+import { Button, Icon } from "@/components/ui";
 
-export const Modal = ({ children, onClick, isOpen, close, className }) => {
+export const Modal = ({ children, onClick, isOpen, className }) => {
   useEffect(() => {
     const handelKeyEscape = (e) => {
       if (e.code === "Escape") {
@@ -28,42 +29,27 @@ export const Modal = ({ children, onClick, isOpen, close, className }) => {
     <>
       {isOpen && (
         <div
-          className=" bg-[#12141733] w-[100%] h-[100%] fixed top-0 left-0 z-10 flex justify-center items-center"
+          className=" bg-black1 size-full fixed top-0 left-0 z-10 flex justify-center items-center"
           onClick={handelCloseClick}
         >
           <div
             className={clsx(
-              "bg-green absolute rounded-[15px]  py-[48px] px-[16px] w-[342px] md:rounded-[30px]  md:w-[628px]    md:p-[64px]",
+              "bg-green absolute rounded-m  py-12 px-8 w-[342px] md:rounded-x  md:w-[628px]    md:p-16",
               className && className
             )}
           >
-            <button
+            <Button
+              type="button"
               onClick={onClick}
-              className="absolute top-[20px] right-[20px] "
+              className="absolute top-5 right-5 "
             >
-              <svg
+              <Icon
+                name="close-button"
                 width="32"
                 height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M24 8L8 24"
-                  stroke="#FCFCFC"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8 8L24 24"
-                  stroke="#FCFCFC"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
+                className="fill-[#fcfcfc]"
+              />
+            </Button>
             {children}
           </div>
         </div>

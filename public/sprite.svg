@@ -98,12 +98,19 @@
 <path fill="none" stroke="#fcfcfc" style="stroke: var(--color1, #fcfcfc)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M8 8l16 16"></path>
 </symbol>
 
-<symbol id="checkbox-succsus" viewBox="0 0 32 32">
+<symbol id="checkbox-success" viewBox="0 0 32 32">
 <path fill="#3cbf61" style="fill: var(--color8, #3cbf61)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.459 21.98l9.427-9.428-1.885-1.885-7.541 7.543-3.772-3.772-1.885 1.885 5.657 5.657z"></path>
 </symbol>
 
 <symbol id="error-warning" viewBox="0 0 32 32">
 <path fill="#d80027" style="fill: var(--color7, #d80027)" d="M16 29.333c-7.364 0-13.333-5.969-13.333-13.333s5.969-13.333 13.333-13.333c7.364 0 13.333 5.969 13.333 13.333s-5.969 13.333-13.333 13.333zM14.666 20v2.667h2.667v-2.667h-2.667zM14.666 9.333v8h2.667v-8h-2.667z"></path>
+</symbol>
+
+
+
+<symbol id="close-button" viewBox="0 0 32 32">
+<path stroke="#fcfcfc" style="stroke: var(--color4, #fcfcfc)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M24 8l-16 16"></path>
+<path  stroke="#fcfcfc" style="stroke: var(--color4, #fcfcfc)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.5" d="M8 8l16 16"></path>
 </symbol>
 </defs>
 
