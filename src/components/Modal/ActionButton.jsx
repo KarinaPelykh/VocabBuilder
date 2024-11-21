@@ -1,5 +1,5 @@
 "use client";
-import useToggle from "../../hooks/useToggle";
+import { useToggle } from "@/hooks/";
 import { Button, Icon } from "@/components/ui";
 import { Modal } from "./Modal";
 import { EditWords } from "../Modal/EditWords";
@@ -7,14 +7,9 @@ import { useDispatch } from "react-redux";
 import { DeleteWord } from "../../redux/words/operations";
 import { toast } from "react-toastify";
 import { useEffect, useRef } from "react";
-export const ActionButton = ({
-  id,
-  en,
-  ua,
-  category,
-  isIrregular,
-  closeModals,
-}) => {
+export const ActionButton = ({ info, closeModals }) => {
+  const { id, word, translation, category, isIrregular } = info;
+
   const dispatch = useDispatch();
 
   const { open, close, isOpen } = useToggle();
@@ -76,8 +71,8 @@ export const ActionButton = ({
       <Modal onClick={close} isOpen={isOpen}>
         <EditWords
           id={id}
-          en={en}
-          ua={ua}
+          en={word}
+          ua={translation}
           category={category}
           isIrregular={isIrregular}
           onClick={close}

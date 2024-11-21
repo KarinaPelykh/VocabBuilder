@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function useSizeWindow() {
+export const useSizeWindow = () => {
   const [size, setSize] = useState(window.innerWidth);
   const handelChangeSize = () => {
     setSize(window.innerWidth);
@@ -14,4 +14,4 @@ export default function useSizeWindow() {
     };
   }, []);
   return { size };
-}
+};

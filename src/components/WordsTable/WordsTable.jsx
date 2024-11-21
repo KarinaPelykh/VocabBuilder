@@ -9,9 +9,9 @@ import {
 import { Table } from "./Table/Tablet";
 import { WordsPagination } from "../WordsPagination/WordsPagination";
 import { selectFilter, selectFilterWords } from "../../redux/words/selector";
-import { Item } from "./Item/Item";
 import { usePathname } from "next/navigation";
 import { Invitation } from "../ui";
+
 export const WordsTable = () => {
   const [limit] = useState(7);
 
@@ -39,29 +39,27 @@ export const WordsTable = () => {
     dispatch(getWordsAll({ page: currentPage, limit }));
   }, [dispatch, currentPage, limit]);
 
+  const handelIronArray = () => {
+    return (route ? allWords : word).flatMap(
+      ({ en, ua, category, progress, _id, isIrregular }) => {
+        return {
+          word: en,
+          translation: ua,
+          category,
+          progress,
+          id: _id,
+          isIrregular,
+        };
+      }
+    );
+  };
+
   return (
     <>
       {!route && !word.length ? (
         <Invitation />
       ) : (
-        <Table>
-          {(route ? allWords : word).flatMap(
-            ({ en, ua, category, progress, _id, isIrregular }) => {
-              return (
-                <Item
-                  key={_id}
-                  _id={_id}
-                  en={en}
-                  ua={ua}
-                  category={category}
-                  progress={progress}
-                  isIrregular={isIrregular}
-                  route={route}
-                />
-              );
-            }
-          )}
-        </Table>
+        <Table handelIronArray={handelIronArray} />
       )}
 
       <WordsPagination

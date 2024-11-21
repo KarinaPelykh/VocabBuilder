@@ -1,7 +1,7 @@
 "use client";
 
 import { Statistics } from "../Statistics/Statistics";
-import useToggle from "../../../hooks/useToggle";
+import { useToggle } from "@/hooks";
 import { AddWords } from "../../Modal/AddWord";
 import { Modal } from "../../Modal/Modal";
 import { usePathname } from "next/navigation";

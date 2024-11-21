@@ -107,9 +107,11 @@ export const getWordsAll = createAsyncThunk(
 export const AddNewWord = createAsyncThunk(
   "add/newWords",
   async ({ id }, { rejectWithValue }) => {
+    console.log(id);
+
     try {
       const { data } = await instance.post(`/words/add/${id}`);
-   
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -122,7 +124,7 @@ export const AllTasks = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await instance.get("/words/tasks");
-     
+
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

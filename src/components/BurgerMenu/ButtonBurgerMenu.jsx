@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { Icon, Button } from "@/components/ui";
 import { BurgerMenu } from "./BurgerMenu";
-import useToggle from "../../hooks/useToggle";
+import { useToggle } from "@/hooks";
 
 export const ButtonBurgerMenu = ({ className }) => {
   const { close, isOpen, open } = useToggle();

@@ -4,7 +4,7 @@ import { PageSelect, totalPageSelect } from "../../redux/words/selector";
 import clsx from "clsx";
 import ReactPaginate from "react-paginate";
 import { usePathname } from "next/navigation";
-import useSizeWindow from "../../hooks/useSizeWindow";
+import { useSizeWindow } from "@/hooks";
 
 export const WordsPagination = ({ currentPage, setCurrentPage }) => {
   const totalPage = useSelector(totalPageSelect);
