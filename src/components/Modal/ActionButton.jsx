@@ -24,28 +24,29 @@ export const ActionButton = ({ info, closeModals }) => {
       });
   };
 
-  const handelClose = (e) => {
-    if (modalRef.current && modalRef.current.contains(e.target)) {
-      return;
-    }
-
-    closeModals();
-  };
-
   useEffect(() => {
+    const handelClose = (e) => {
+      if (modalRef.current && modalRef.current.contains(e.target)) {
+        return;
+      }
+      closeModals();
+    };
     document.addEventListener("mousedown", handelClose);
     return () => {
       document.removeEventListener("mousedown", handelClose);
     };
-  }, []);
+  }, [closeModals]);
 
   return (
     <>
       <div
         ref={modalRef}
-        className="  bg-white py-3 px-6 rounded-m w-[124px] h-[80px] shadow-boxShadowS   absolute top-[60%] right-0    xl:top-[60%] xl:right-[65px] z-10"
+        className=" bg-white py-3 px-6 rounded-m w-[124px] h-[80px] shadow-boxShadowS   absolute top-[60%] right-0    xl:top-[60%] xl:right-[65px] z-10"
       >
-        <Button className="flex justify-start items-center mb-2" onClick={open}>
+        <Button
+          className="flex justify-start items-center mb-2 text-[16px]"
+          onClick={open}
+        >
           <Icon
             width="16"
             height="16"
@@ -56,7 +57,7 @@ export const ActionButton = ({ info, closeModals }) => {
         </Button>
         <Button
           type="button"
-          className="flex justify-start items-center"
+          className="flex justify-start items-center text-[16px]"
           onClick={handelDelete}
         >
           <Icon

@@ -19,7 +19,7 @@ export const WordsTableRow = ({ row }) => {
 
   const pathname = usePathname();
 
-  const route = pathname === "/recommend";
+  const isRecommendPage = pathname === "/recommend";
 
   const { close, isOpen, open } = useToggle();
 
@@ -42,12 +42,12 @@ export const WordsTableRow = ({ row }) => {
 
         const isProgress = cell.render("Header") === "Progress";
 
-        const isRecommendOrMoreThenTablet = route || size >= 767;
+        const isRecommendOrMoreThenTablet = isRecommendPage || size >= 767;
 
         return isCategory ? (
           isRecommendOrMoreThenTablet && <WordsTableCell cell={cell} />
         ) : isProgress ? (
-          !route && (
+          !isRecommendPage && (
             <WordsTableCell key={i} cell={cell}>
               <ProgressBar
                 progress={cell.value}
@@ -59,13 +59,19 @@ export const WordsTableRow = ({ row }) => {
           <WordsTableCell key={i} cell={cell}>
             <Button
               onClick={
-                route ? () => handelAddDictionary(cell.row.original.id) : open
+                isRecommendPage
+                  ? () => handelAddDictionary(cell.row.original.id)
+                  : open
               }
             >
-              {route ? `${size <= 767 ? "" : "Add to dictionary"}` : "..."}
+              {isRecommendPage
+                ? `${size <= 767 ? "" : "Add to dictionary"}`
+                : "..."}
               <Icon
                 name="icon-switch-horizontal-01-1"
-                className={clsx(route ? "flex stroke-green" : "hidden")}
+                className={clsx(
+                  isRecommendPage ? "flex stroke-green" : "hidden"
+                )}
               />
             </Button>
             {isOpen && (
@@ -79,10 +85,3 @@ export const WordsTableRow = ({ row }) => {
     </>
   );
 };
-
-// last button in cell
-// className={clsx(
-//   " text-[14px] md:text-[16px] !ml-[0px] ",
-//   route && "block xl:w-[208px]",
-//   !route && "block xl:w-[135px]"
-// )}

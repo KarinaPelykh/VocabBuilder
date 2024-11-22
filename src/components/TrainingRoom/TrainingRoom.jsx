@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import useToggle from "../../hooks/useToggle";
+import { useToggle } from "@/hooks";
 import { TasksSelect } from "../../redux/words/selector";
 import { AddMadeTasks, AllTasks } from "../../redux/words/operations";
 
